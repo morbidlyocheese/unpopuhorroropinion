@@ -20,7 +20,13 @@ Application Architecture & Techonologies Used:
 Frontend Overview:
 ---
 
-[Color Palette](https://coolors.co/ffffff-808080-000000-800000-ff0000)  
+[Color Palette:](https://coolors.co/ffffff-808080-000000-800000-ff0000)
+---
+- White: `#ffffff`
+- Gray Web: `#808080`
+- Black: `#000000`
+- Maroon Web: `#800000`
+- Red: `#ff0000`  
 ![unpop-palette](./readme-resources/unpop-palette.png)
 
 Backend Overview:

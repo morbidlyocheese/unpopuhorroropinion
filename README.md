@@ -15,3 +15,26 @@ Unpopunhorroropinion.com is a site where horror lovers can go to catalog their c
 
 Application Architecture & Techonologies Used:
 ---
+
+
+Frontend Overview:
+---
+
+[Color Palette](https://coolors.co/ffffff-808080-000000-800000-ff0000)  
+![unpop-palette](./readme-resources/unpop-palette.png)
+
+Backend Overview:
+---
+
+Tables:
+---
+Table Name | Columns
+---|---
+Users | username, email, hashedPassword, createdAt, updatedAt
+Movies | title, director, releaseDate, synopsis, poster, tagId, watchLinks, createdAt, updatedAt
+Shelves | name, userId, pictures
+ShelvesJoinsMovies | shelvesId, movieId
+Reviews | userId, movieId, review
+Tags | name, userId
+
+![db-diagram](./readme-resources/unpop-db.png)

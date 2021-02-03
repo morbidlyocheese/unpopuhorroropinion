@@ -12,8 +12,11 @@
    viewBox="0 0 16.0 16.0"
    version="1.1"
    id="SVGRoot"
-   sodipodi:docname="uph.svg"
-   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+   sodipodi:docname="upho.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   inkscape:export-filename="C:\Users\i_ade\Desktop\upho-head.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <defs
      id="defs49" />
   <sodipodi:namedview
@@ -23,17 +26,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="15.839192"
-     inkscape:cx="23.242925"
-     inkscape:cy="2.4333176"
+     inkscape:zoom="22.4"
+     inkscape:cx="3.5726677"
+     inkscape:cy="6.7422409"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="true"
-     inkscape:window-width="1280"
-     inkscape:window-height="666"
-     inkscape:window-x="1899"
-     inkscape:window-y="1072"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:object-paths="true">
     <inkscape:grid
@@ -86,14 +89,17 @@
        id="path27" />
     <text
        xml:space="preserve"
-       style="font-size:5.33333px;line-height:1.25;font-family:creepster;-inkscape-font-specification:creepster"
-       x="4.0304575"
-       y="5.7960052"
-       id="text31"><tspan
+       style="font-size:6.87816px;line-height:1.25;font-family:creepster;-inkscape-font-specification:creepster;stroke-width:1.28966"
+       x="1.6302537"
+       y="6.4961271"
+       id="text31"
+       transform="scale(0.96053654,1.0410848)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
          sodipodi:role="line"
          id="tspan29"
-         x="4.0304575"
-         y="5.7960052"
-         style="fill:#ff0000">uph</tspan></text>
+         x="1.6302537"
+         y="6.4961271"
+         style="fill:#ff0000;stroke-width:1.28966">upho</tspan></text>
   </g>
 </svg>

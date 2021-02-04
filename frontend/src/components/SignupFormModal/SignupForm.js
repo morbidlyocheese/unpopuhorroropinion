@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import * as sessionActions from "../../store/session";
 
+import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
-function SignupFormPage() {
+function SignupForm() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [email, setEmail] = useState("");
@@ -29,13 +29,14 @@ function SignupFormPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='signup-form' onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>
                 Email
         <input
+                    className='signup-form-input email'
                     type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -45,6 +46,7 @@ function SignupFormPage() {
             <label>
                 Username
         <input
+                    className='signup-form-input username'
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -54,6 +56,7 @@ function SignupFormPage() {
             <label>
                 Password
         <input
+                    className='signup-form-input password'
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -63,15 +66,16 @@ function SignupFormPage() {
             <label>
                 Confirm Password
         <input
+                    className='signup-form-input confirm-password'
                     type="password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                 />
             </label>
-            <button type="submit">Sign Up</button>
+            <button className='signup-form-submit' type="submit">Sign Up</button>
         </form>
     );
 }
 
-export default SignupFormPage;
+export default SignupForm;

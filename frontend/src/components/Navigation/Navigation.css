@@ -1,0 +1,21 @@
+body {
+    background-color: black;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 60px;
+	text-align: center;
+    font-size: 12px;
+    border-radius: 5px;
+    list-style-type: none;
+    background-color: white;
+    color: black;
+}
+
+.home {
+    text-decoration: none;
+}

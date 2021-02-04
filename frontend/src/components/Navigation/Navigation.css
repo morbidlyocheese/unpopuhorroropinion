@@ -19,3 +19,45 @@ body {
 .home {
     text-decoration: none;
 }
+
+.profile-button {
+    background-color: white;
+    /* position: fixed; */
+    right: 0;
+    display: block;
+    border-radius: 5px;
+    height: 40px;
+    width: 60px;
+}
+
+.logout {
+    background-color: white;
+    border-radius: 5px;
+    height: 40px;
+    width: 60px;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    position: relative;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    margin-left: 21px;
+    border-radius: 5%;
+    border-bottom: 10px solid #697090;
+}
+
+.profile-dropdown {
+    display: block;
+    margin-top: 100px;
+    position: relative;
+    color: white;
+    max-width: 280px;
+    word-wrap: break-word;
+    background-color: #808080;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 8px 8px 0 rgba(33, 39, 56, 0.2);
+}

@@ -2,7 +2,8 @@
     top: 0;
     left: 0;
     height: 40px;
-    width: 100%;
+	width: 100%;
+	/* position: fixed; */
     z-index: 1;
     display: flex;
     background-color: #808080;
@@ -18,7 +19,6 @@
     background-color: white;
     color: black;
 }
-
 
 
 /* reset styling */

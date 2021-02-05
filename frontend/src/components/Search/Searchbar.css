@@ -1,0 +1,18 @@
+.navbar-search-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 150px;
+}
+
+.navbar-search-input {
+    border-radius: 5px;
+    justify-content: center;
+    padding: 5px;
+}
+
+.navbar-search-submit {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}

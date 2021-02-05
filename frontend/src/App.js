@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import MoviesList from './components/MoviePage/MoviesPage';
 
 import './index.css'
+import SearchPage from "./components/Search/SearchPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,7 +30,12 @@ function App() {
           )}
       </div>
       <div className='body-container'>
-        <MoviesList/>
+        <Route path='/movies/search'>
+          <SearchPage />
+        </Route>
+        <Route path='/movies/discover'>
+          <MoviesList/>
+        </Route>
       </div>
     </>
   );

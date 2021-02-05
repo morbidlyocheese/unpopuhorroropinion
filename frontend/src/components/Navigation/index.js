@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import SearchBar from '../Search/Searchbar';
+
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -13,7 +15,10 @@ function Navigation({ isLoaded }) {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <ProfileButton className='profile-button' user={sessionUser} />
+            <>
+                <ProfileButton className='profile-button' user={sessionUser} />
+                <SearchBar/>
+            </>
         );
     } else {
         sessionLinks = (

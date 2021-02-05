@@ -51,7 +51,7 @@ body {
 .profile-dropdown {
     display: block;
     margin-top: 100px;
-    position: relative;
+    position: absolute;
     color: white;
     max-width: 280px;
     word-wrap: break-word;

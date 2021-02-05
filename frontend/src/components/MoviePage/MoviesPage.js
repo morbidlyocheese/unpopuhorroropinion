@@ -13,19 +13,20 @@ function MoviesList({ data }) {
         dispatch(movieActions.movieList())
     }, [dispatch]);
 
-    // useEffect(() => {
-    //     dispatch(movieActions.moviePoster())
-    // }, [dispatch]);
-
     // const url = `${apiUrl}/movie/${id}?api_key=${apiKey}&language=en-US`;
+    const baseUrl = 'https://image.tmdb.org/t/p/w500';
 
     return (
         <div className='movies-list-container'>
             {movies && movies.map((movie) => 
-            <div className='movie-container'>
-                <li className='movie-title'>{movie.title}</li>
-                <li className='movie-id'>{movie.id}</li>
-                <li className='movie-poster'><img src={movie.poster_path}/></li>
+            <div className='movie-outer-container'>
+                <div><img className='movie-poster' src={baseUrl + movie.poster_path}/></div>
+                <div className='movie-inner-container'>
+                    <div className='movie-title'>{movie.title}</div>
+                    <div className='movie-bio'>{movie.overview}</div>
+                    <div className='movie-vote'>{movie.vote_average}</div>
+                </div>
+                {/* <div className='movie-id'>{movie.id}</div> */}
             </div>
             )}
         </div>

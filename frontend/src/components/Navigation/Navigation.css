@@ -22,7 +22,7 @@ body {
 
 .profile-button {
     background-color: white;
-    /* position: fixed; */
+    position: absolute;
     right: 0;
     display: block;
     border-radius: 5px;

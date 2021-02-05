@@ -20,6 +20,12 @@
     color: black;
 }
 
+.body-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 
 /* reset styling */
 html, body, div, span, applet, object, iframe,

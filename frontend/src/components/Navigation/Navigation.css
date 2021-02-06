@@ -45,19 +45,26 @@ body {
     border-right: 10px solid transparent;
     margin-left: 21px;
     border-radius: 5%;
-    border-bottom: 10px solid #697090;
+    border-bottom: 10px solid #80808079;
+    margin-top: 50px;
+    margin-right: 12px;
 }
 
 .profile-dropdown {
     display: block;
-    margin-top: 100px;
+    margin-top: 150px;
+    margin-right: 10px;
     position: absolute;
     color: white;
     max-width: 280px;
     word-wrap: break-word;
-    background-color: #808080;
+    background-color: #80808079;
     align-items: center;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 8px 8px 0 rgba(33, 39, 56, 0.2);
+}
+
+.navbar-links:hover {
+
 }

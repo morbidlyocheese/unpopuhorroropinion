@@ -8,6 +8,25 @@
     font-size: 12px;
     border-radius: 5px;
     list-style-type: none;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.438);
     color: black;
+}
+
+.login-modal-container {
+    display: flex;
+    height: 200px;
+    width: 200px;
+    border-radius: 5px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-form-submit {
+    border-radius: 5px;
+}
+
+.login-errors {
+    color: red;
+    padding: 10px;
+    font-weight: bold;
 }

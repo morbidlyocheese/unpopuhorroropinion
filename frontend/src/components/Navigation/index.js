@@ -16,8 +16,8 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <ProfileButton className='profile-button' user={sessionUser} />
                 <SearchBar/>
+                <ProfileButton className='profile-button' user={sessionUser} />
             </>
         );
     } else {

@@ -20,6 +20,10 @@ Application Architecture & Techonologies Used:
 Frontend Overview:
 ---
 
+Fonts Used:
+[Big Shoulders Display(Google Fonts)](https://fonts.google.com/specimen/Big+Shoulders+Display?preview.text_type=custom&sidebar.open=true&selection.family=Big+Shoulders+Display:wght@100;400;900&query=big+shoul)
+[Creepster(Google Fonts)](https://fonts.google.com/specimen/Creepster?preview.text_type=custom&selection.family=Big+Shoulders+Display:wght@100;400;900|Creepster&query=creepster)
+
 [Color Palette:](https://coolors.co/ffffff-808080-000000-800000-ff0000)
 ---
 - White: `#ffffff`
@@ -37,10 +41,6 @@ Tables:
 Table Name | Columns
 ---|---
 Users | username, email, hashedPassword, createdAt, updatedAt
-Movies | title, director, releaseDate, synopsis, poster, tagId, watchLinks, createdAt, updatedAt
-Shelves | name, userId, pictures
-ShelvesJoinsMovies | shelvesId, movieId
-Reviews | userId, movieId, review
-Tags | name, userId
+Collections | name, pictures, watched, userId, movieId
 
-![db-diagram](./readme-resources/unpop-db.png)
+![db-diagram](./readme-resources/db.png)

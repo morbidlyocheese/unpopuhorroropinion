@@ -17,7 +17,6 @@ export const fetchMovieInfo = (searchTerm) => async(dispatch) => {
     const data = await res.json();
     const movie = data.results;
 
-    console.log('res -> ', data);
     // make dispatch action
     dispatch(searchMovie(movie));
 }

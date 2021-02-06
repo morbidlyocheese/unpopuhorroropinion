@@ -1,5 +1,11 @@
 body {
     background-color: black;
+	font-family: 'Big Shoulders Display', cursive;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .navbar-links {
@@ -14,10 +20,42 @@ body {
     list-style-type: none;
     background-color: white;
     color: black;
+	font-family: 'Big Shoulders Display', cursive;
+}
+
+.home-container {
+    display: flex;
+}
+
+.navbar-link {
+    justify-content: flex-start;
+    display: flex;
+    height: 40px;
+    width: 60px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Big Shoulders Display', cursive;
 }
 
 .home {
+    font-family: 'Big Shoulders Display', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 60px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
     text-decoration: none;
+}
+
+.active {
+    color: white;
+    background-color: #808080;
 }
 
 .profile-button {
@@ -28,6 +66,7 @@ body {
     border-radius: 5px;
     height: 40px;
     width: 60px;
+    z-index: 1;
 }
 
 .logout {
@@ -35,25 +74,14 @@ body {
     border-radius: 5px;
     height: 40px;
     width: 60px;
-}
-
-.triangle {
-    width: 0;
-    height: 0;
-    position: relative;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    margin-left: 21px;
-    border-radius: 5%;
-    border-bottom: 10px solid #80808079;
-    margin-top: 50px;
-    margin-right: 12px;
+	font-family: 'Big Shoulders Display', cursive;
 }
 
 .profile-dropdown {
+    font-family: 'Big Shoulders Display', cursive;
     display: block;
-    margin-top: 150px;
-    margin-right: 10px;
+    top: 40px;
+    right: 5px;
     position: absolute;
     color: white;
     max-width: 280px;

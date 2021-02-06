@@ -1,3 +1,6 @@
-/* div {
+.search-page-container {
+    margin-top: 50px;
+    border-radius: 5px;
+    background-color: white;
     color: black;
-} */
+}

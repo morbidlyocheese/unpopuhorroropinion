@@ -13,7 +13,9 @@ router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
+// movie specific routes
 router.use('/movies/discover', MovieController.discover);
 router.use('/movies/search', MovieController.search);
+router.use('/movies/details/:id', MovieController.details)
 
 module.exports = router;

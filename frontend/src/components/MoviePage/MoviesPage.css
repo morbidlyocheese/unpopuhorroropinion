@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;400;900&family=Creepster&display=swap');
+
 .movies-list-container {
     background-color: white;
     width: 400px;
@@ -24,10 +26,12 @@
 .movie-title {
     font-weight: bold;
     color: red;
+    font-family: 'Big Shoulders Display', cursive;
 }
 
 .movie-vote {
     color: #808080;
+    font-family: 'Big Shoulders Display', cursive;
 }
 
 .movie-bio {
@@ -40,6 +44,7 @@
     scrollbar-arrow-color: red;
     scrollbar-face-color: #808080;
     border-radius: 5px;
+    font-family: 'Big Shoulders Display', cursive;
 }
 
 .movie-inner-container {

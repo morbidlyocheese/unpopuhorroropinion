@@ -1,0 +1,38 @@
+.movie-outer-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 300px;
+    max-height: 600px;
+    margin-top: 10px;
+}
+
+.movie-poster {
+    max-height: 200px;
+    max-width: 100px;
+    padding: 15px;
+}
+
+.movie-title {
+    font-weight: bold;
+    color: red;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.movie-vote {
+    color: #808080;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.movie-bio {
+    max-height: 100px;
+    max-width: 200px;
+    overflow: auto;
+    background-color: #80808056;
+    scrollbar-color: white;
+    scrollbar-base-color: #808080;
+    scrollbar-arrow-color: red;
+    scrollbar-face-color: #808080;
+    border-radius: 5px;
+    font-family: 'Big Shoulders Display', cursive;
+}

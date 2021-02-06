@@ -10,23 +10,49 @@
     list-style-type: none;
     background-color: rgba(255, 255, 255, 0.438);
     color: black;
+	font-family: 'Big Shoulders Display', cursive;
 }
 
 .login-modal-container {
     display: flex;
     height: 200px;
-    width: 200px;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.438);
     border-radius: 5px;
     justify-content: center;
     padding: 20px;
+	font-family: 'Big Shoulders Display', cursive;
 }
 
 .login-form-submit {
+    padding: 5px;
+    width: 60px;
+    height: 40px;
     border-radius: 5px;
+	font-family: 'Big Shoulders Display', cursive;
+}
+
+.login-form-username-container, 
+.login-form-password-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.login-form-username-label,
+.login-form-password-label {
+    padding: 10px;
+}
+
+.login-form-input,
+.login-form-submit-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
 }
 
 .login-errors {
     color: red;
     padding: 10px;
+	font-family: 'Big Shoulders Display', cursive;
     font-weight: bold;
 }

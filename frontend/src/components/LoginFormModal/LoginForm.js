@@ -28,27 +28,33 @@ function LoginForm() {
                         <li key={idx}>{error}</li>
                     ))}
                 </ul>
-                <label className='login-form-username-label'>
-                    Username or Email
-            <input
-                        className='login-form-input login-username'
-                        type="text"
-                        value={credential}
-                        onChange={(e) => setCredential(e.target.value)}
-                        required
-                    />
-                </label>
-                <label className='login-form-password-label'>
-                    Password
-            <input
-                        className='login-form-input login-password'
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </label>
-                <button className='login-form-submit' type="submit">Login</button>
+                <div className='login-form-username-container'>
+                    <label className='login-form-username-label'>
+                        Username/Email:
+                    </label>
+                    <input
+                            className='login-form-input login-username'
+                            type="text"
+                            value={credential}
+                            onChange={(e) => setCredential(e.target.value)}
+                            required
+                        />
+                </div>
+                <div className='login-form-password-container'>
+                    <label className='login-form-password-label'>
+                        Password:
+                    </label>
+                <input
+                            className='login-form-input login-password'
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                </div>
+                <div className='login-form-submit-container'>
+                    <button className='login-form-submit' type="submit">Login</button>
+                </div>
             </form>
         </div>
     );

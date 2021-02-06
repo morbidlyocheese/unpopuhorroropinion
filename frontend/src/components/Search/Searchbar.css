@@ -3,16 +3,23 @@
     justify-content: flex-start;
     align-items: center;
     margin-right: 150px;
+	font-family: 'Big Shoulders Display', cursive;
 }
 
 .navbar-search-input {
+    height: 25px;
     border-radius: 5px;
     justify-content: center;
+	font-family: 'Big Shoulders Display', cursive;
     padding: 5px;
 }
 
 .navbar-search-submit {
     border-radius: 5px;
+    font-family: 'Big Shoulders Display', cursive;
+    width: 60px;
+    height: 40px;
     padding: 5px;
     margin: 5px;
 }
+

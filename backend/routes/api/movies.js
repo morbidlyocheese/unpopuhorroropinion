@@ -33,6 +33,7 @@ class MovieController {
         let response = await fetch(url);
         let data = await response.json();
         
+        console.log('id ->', id);
         return res.status(200).send(data);
     }
 }

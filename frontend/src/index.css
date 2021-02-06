@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;400;900&family=Creepster&display=swap');
+/* font-family: 'Creepster', cursive; */
+
 .navbar-container {
     top: 0;
     left: 0;
@@ -8,22 +11,28 @@
     display: flex;
     background-color: #808080;
 	align-items: center;
-	justify-content: flex-end;
+	/* flex-direction: column; */
+	/* justify-content: flex-end; */
 }
 
-.navbar-links {
+/* .navbar-links {
 	text-decoration: none;
     font-size: 12px;
     border-radius: 5px;
     list-style-type: none;
     background-color: white;
     color: black;
-}
+	font-family: 'Big Shoulders Display', cursive;
+} */
 
 .body-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+body {
+	font-family: 'Big Shoulders Display', cursive;
 }
 
 

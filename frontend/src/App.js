@@ -6,6 +6,7 @@ import SignupForm from "./components/SignupFormModal";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import MoviesList from './components/MoviePage/MoviesPage';
+import MoviePage from './components/MoviePage/MoviePage';
 
 import './index.css'
 import SearchPage from "./components/Search/SearchPage";
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path='/movies/discover'>
           <MoviesList/>
+        </Route>
+        <Route path='/movies/:id'>
+          <MoviePage/>
         </Route>
       </div>
     </>

@@ -24,7 +24,7 @@ export const movieList = () => async(dispatch) => {
 }
 
 export const movieDetails = (id) => async(dispatch) => {
-    const res = await fetch(`/api/movies/${id}`);
+    const res = await fetch("/api/movies/details/"+id);
     dispatch(getMovie(res.data));
     return res;
 }

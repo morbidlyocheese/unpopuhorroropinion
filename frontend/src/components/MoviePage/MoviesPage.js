@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import * as movieActions from '../../store/movie';
 import './MoviesPage.css';
 
-function MoviesList({ data }) {
+function MoviesList() {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -23,7 +23,7 @@ function MoviesList({ data }) {
     return (
         <div className='movies-list-container'>
             {movies && movies.map((movie) => 
-                <div className='movie-outer-container' onClick={() => history.push(`movies/${movie.id}`)}>
+                <div className='movie-outer-container' onClick={() => history.push(`/movies/${movie.id}`)}>
                 <div><img alt='movie-poster' className='movie-poster' src={baseUrl + movie.poster_path}/></div>
                 <div className='movie-inner-container'>
                     <div className='movie-title'>{movie.title}</div>

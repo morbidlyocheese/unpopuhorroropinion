@@ -1,0 +1,35 @@
+.collection-container {
+  border: 5px solid #49311d;
+  height: 200px;
+  width: 1000px;
+  background-color: #312113;
+  margin-left: 0;
+  box-shadow: inset 5px 5px 15px 5px #18100a;
+}
+
+.collection-case {
+  height: 180px;
+  width: 20px;
+  border: 1px solid black;
+  margin-top: 10px;
+  background-color: black;
+  display: inline-block;
+  transition-duration: 1s;
+  border-radius: 5px;
+}
+
+.collection-text {
+  transform: rotate(90deg);
+  color: white;
+  padding: 2px;
+}
+
+.collection-bottom {
+  border: 5px solid #49311d;
+}
+
+.collection-case:hover {
+  z-index: 1;
+  transform: translateY(-10%);
+  transition-duration: 1s;
+}

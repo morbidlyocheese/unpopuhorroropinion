@@ -67,6 +67,7 @@ body {
     height: 40px;
     width: 60px;
     z-index: 1;
+    font-family: 'Big Shoulders Display', cursive;
 }
 
 .logout {

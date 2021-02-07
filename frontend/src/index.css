@@ -15,16 +15,6 @@
 	/* justify-content: flex-end; */
 }
 
-/* .navbar-links {
-	text-decoration: none;
-    font-size: 12px;
-    border-radius: 5px;
-    list-style-type: none;
-    background-color: white;
-    color: black;
-	font-family: 'Big Shoulders Display', cursive;
-} */
-
 .body-container {
 	display: flex;
 	justify-content: center;

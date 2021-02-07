@@ -1,5 +1,5 @@
 // action type
-const SEARCH_MOVIE = 'movie/search'
+const SEARCH_MOVIE = 'movie/search';
 
 //  pojo action
 const searchMovie = (movie) => {

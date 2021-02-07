@@ -4,3 +4,7 @@
     background-color: white;
     color: black;
 }
+
+.movie-vote {
+    font-weight: bold;
+}

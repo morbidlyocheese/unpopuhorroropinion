@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import MoviesList from './components/MoviePage/MoviesPage';
 import MoviePage from './components/MoviePage/MoviePage';
+import Collection from './components/CollectionPage/Collection';
 
 import './index.css'
 import SearchPage from "./components/Search/SearchPage";
@@ -37,8 +38,11 @@ function App() {
         <Route path='/movies/discover'>
           <MoviesList/>
         </Route>
-        <Route path='/movies/:id'>
+        <Route path='/movies/details/:id'>
           <MoviePage/>
+        </Route>
+        <Route path='/collections/:id'>
+          <Collection/>
         </Route>
       </div>
     </>

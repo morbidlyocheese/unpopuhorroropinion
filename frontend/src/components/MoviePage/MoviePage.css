@@ -1,16 +1,39 @@
 .movie-outer-container {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    max-width: 300px;
     max-height: 600px;
-    margin-top: 10px;
+    max-width: 400px;
+    flex-direction: row;
+    margin-top: 70px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.movie-inner1-container {
+    display: flex;
+    max-width: 300px;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+
+.movie-inner2-container {
+    display: flex;
+    width: 400px;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.movie-inner3-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .movie-poster {
     max-height: 200px;
     max-width: 100px;
-    padding: 15px;
 }
 
 .movie-title {
@@ -21,23 +44,41 @@
 
 .movie-vote {
     color: #808080;
+    justify-content: flex-start;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.movie-tagline {
+    color: black;
+    font-style: italic;
+}
+
+.movie-tagline,
+.movie-release-date,
+.movie-runtime {
     font-family: 'Big Shoulders Display', cursive;
 }
 
 .movie-bio {
-    max-height: 100px;
-    max-width: 200px;
+    max-height: 200px;
+    width: 350px;
     overflow: auto;
     background-color: #80808056;
-    scrollbar-color: white;
-    scrollbar-base-color: #808080;
-    scrollbar-arrow-color: red;
-    scrollbar-face-color: #808080;
     border-radius: 5px;
     font-family: 'Big Shoulders Display', cursive;
 }
 
+.movie-text {
+    color: black;
+    font-weight: bold;
+    font-family: 'Big Shoulders Display', cursive;
+}
 
-p {
-    color: white;
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #808080
 }

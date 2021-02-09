@@ -11,8 +11,6 @@
     display: flex;
     background-color: #808080;
 	align-items: center;
-	/* flex-direction: column; */
-	/* justify-content: flex-end; */
 }
 
 .body-container {

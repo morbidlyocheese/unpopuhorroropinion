@@ -21,8 +21,6 @@ export const fetchMovieInfo = (searchTerm) => async(dispatch) => {
     dispatch(searchMovie(movie));
 }
 
-// const initialState = { movie: null };
-
 const searchReducer = (state=[], action) => {
     switch (action.type) {
         case SEARCH_MOVIE:

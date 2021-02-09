@@ -1,10 +1,46 @@
 .search-page-container {
-    margin-top: 50px;
+    display: flex;
+    margin-top: 70px;
+    max-width: 300px;
     border-radius: 5px;
     background-color: white;
     color: black;
+    text-decoration: none;
+    padding: 15px;
+    flex-wrap: wrap;
+}
+
+.search-inner {
+    display: flex;
+    max-width: 200px;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.poster-container {
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    max-width: 100px;
+}
+
+.details-container {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
 .movie-vote {
+    display: flex;
+}
+
+.movie-bio {
+    display: block;
+    color: black;
+}
+
+p {
     font-weight: bold;
 }

@@ -6,6 +6,7 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import SearchBar from '../Search/Searchbar';
+import MoviesPage from '../../components/MoviePage/MoviesPage';
 
 import './Navigation.css';
 
@@ -14,13 +15,15 @@ function Navigation({ isLoaded }) {
 
     let sessionLinks;
     if (sessionUser) {
-        sessionLinks = (<>
-            <div className='navbar-container'>
-                <NavLink className='home' exact to="/">Home</NavLink>
-                <SearchBar className='searchbar'/>
-            </div>
-                <ProfileButton className='profile-button' user={sessionUser}/>
-                </>
+        sessionLinks = (
+            <>
+                <div className='navbar-container'>
+                    <NavLink className='home' exact to="/">Home</NavLink>
+                    <a className='discover' href='/movies/discover'>Discover</a>
+                    <SearchBar className='searchbar'/>
+                </div>
+                    <ProfileButton className='profile-button' user={sessionUser}/>
+            </>
         );
     } else {
         sessionLinks = (
@@ -32,9 +35,11 @@ function Navigation({ isLoaded }) {
     }
 
     return (
-        <div className='navbar-container'>
-            {isLoaded && sessionLinks}
-        </div>
+        <>
+            <div className='navbar-container'>
+                {isLoaded && sessionLinks}
+            </div>
+        </>
     );
 }
 

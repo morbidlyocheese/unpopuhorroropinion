@@ -13,7 +13,7 @@
 	font-family: 'Big Shoulders Display', cursive;
 }
 
-.login-modal-container {
+.modal-content {
     display: flex;
     height: 200px;
     width: 300px;
@@ -24,12 +24,20 @@
 	font-family: 'Big Shoulders Display', cursive;
 }
 
-.login-form-submit {
+.login-form-submit,
+.login {
     padding: 5px;
     width: 60px;
     height: 40px;
+    background-color: white;
     border-radius: 5px;
 	font-family: 'Big Shoulders Display', cursive;
+}
+
+.login-form-submit:hover,
+.login:hover {
+    color: white;
+    background-color: #808080;
 }
 
 .login-form-username-container, 

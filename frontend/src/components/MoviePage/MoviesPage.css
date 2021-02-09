@@ -6,6 +6,8 @@
     display: flex;
     justify-items: center;
     flex-direction: column;
+    margin-top: 70px;
+    border-radius: 5px;
 }
 
 .movie-outer-container {
@@ -16,6 +18,16 @@
     max-width: 300px;
     max-height: 600px;
     margin-top: 10px;
+}
+
+.discover-h1 {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    font-size: 80px;
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: bold;
+
 }
 
 .poster-title {
@@ -44,6 +56,7 @@
     max-height: 100px;
     max-width: 200px;
     overflow: auto;
+    margin-top: 20px;
     background-color: #80808056;
     scrollbar-color: white;
     scrollbar-base-color: #808080;

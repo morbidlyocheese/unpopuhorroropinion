@@ -17,6 +17,7 @@ function MoviesList() {
 
     return (
         <div className='movies-list-container'>
+            <h1 className='discover-h1'>Discover</h1>
             {movies && movies.map((movie) => 
                 <Link to={`/movies/details/${movie.id}`}>
                     <div className='movie-outer-container'>

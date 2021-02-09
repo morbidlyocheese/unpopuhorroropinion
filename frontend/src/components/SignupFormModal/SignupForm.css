@@ -8,6 +8,60 @@
     font-size: 12px;
     border-radius: 5px;
     list-style-type: none;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.438);
     color: black;
+	font-family: 'Big Shoulders Display', cursive;
+}
+
+#modal-content {
+    display: flex;
+    height: 350px;
+    width: 300px;
+    max-height: 450px;
+    background-color: rgba(255, 255, 255, 0.938);
+    border-radius: 5px;
+    justify-content: center;
+    padding: 20px;
+	font-family: 'Big Shoulders Display', cursive;
+}
+
+.signup-form-submit,
+.signup {
+    padding: 5px;
+    width: 60px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+	font-family: 'Big Shoulders Display', cursive;
+}
+
+.signup-form-submit:hover,
+.signup:hover {
+    color: white;
+    background-color: #808080;
+}
+
+.signup-form-username-container, 
+.signup-form-password-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.signup-form-username-label,
+.signup-form-password-label {
+    padding: 10px;
+}
+
+.signup-form-input,
+.signup-form-submit-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.signup-errors {
+    color: red;
+    padding: 10px;
+	font-family: 'Big Shoulders Display', cursive;
+    font-weight: bold;
 }

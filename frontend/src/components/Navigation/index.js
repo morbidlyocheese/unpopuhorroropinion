@@ -18,8 +18,8 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <div className='navbar-container'>
-                    <NavLink className='home' exact to="/">Home</NavLink>
-                    <a className='discover' href='/movies/discover'>Discover</a>
+                    {/* <NavLink className='home' exact to="/">Home</NavLink> */}
+                    <a className='discover' href='/movies/discover'>Home</a>
                     <SearchBar className='searchbar'/>
                 </div>
                     <ProfileButton className='profile-button' user={sessionUser}/>

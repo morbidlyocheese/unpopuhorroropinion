@@ -49,4 +49,24 @@ router.post(
     })
 );
 
+// add movie to collection
+router.post(
+    '/',
+    asyncHandler(async (req, res) => {
+        const { movieId } = req.body;
+
+        const newMovie = await Collection.create({
+            movieId
+        });
+
+        const collection = await Collection.findByPk(collectionId, {
+            include: [{ model: User }]
+        });
+
+        return res.json({
+            collection
+        });
+    }),
+);
+
 module.exports = router;

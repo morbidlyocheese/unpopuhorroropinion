@@ -1,14 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
 import * as movieActions from '../../store/movie';
+import AddMovie from '../../components/CollectionPage/AddMovie';
 
 import './MoviePage.css';
 
 function MoviePage() {
+    const [collection, setCollection] = useState([]);
+
     const dispatch = useDispatch();
     const baseUrl = 'https://image.tmdb.org/t/p/w500';
     const movie = useSelector(state => state.movies);
+    const collections = useSelector(state => state.collection);
     const { id } = useParams();
 
     useEffect(() => {
@@ -33,6 +38,7 @@ function MoviePage() {
                     <p className='movie-text'>Vote Average: </p>{movie.vote_average}</div>
                     <div className='movie-homepage'>
                     <p className='movie-text'>Homepage: </p><a href={movie.homepage}>Link</a></div>
+                    <AddMovie/>
                 </div>
             </div>
         </div>

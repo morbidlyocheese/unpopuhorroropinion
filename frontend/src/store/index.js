@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import movieReducer from './movie';
 import searchReducer from './search';
+import collectionReducer from './collection';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     movies: movieReducer,
-    search: searchReducer
+    search: searchReducer,
+    collection: collectionReducer
 });
 
 let enhancer;

@@ -13,11 +13,21 @@ import './index.css'
 import SearchPage from "./components/Search/SearchPage";
 
 function App() {
+  const [collection, setCollection] = useState([]);
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  useEffect(() => {
+
+  })
+
+  // const addToCollection = (id) => {
+  //   const newCollection = [...collection, movieId];
+  //   setCollection(newCollection);
+  // };
 
   return (
     <>

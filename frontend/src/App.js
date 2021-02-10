@@ -13,7 +13,7 @@ import './index.css'
 import SearchPage from "./components/Search/SearchPage";
 
 function App() {
-  const [collection, setCollection] = useState([]);
+  // const [collection, setCollection] = useState([]);
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {

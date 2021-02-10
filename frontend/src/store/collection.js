@@ -19,16 +19,17 @@ function add(movie) {
 
 export const getCollection = (id) => async (dispatch) => {
     const res = await fetch(`/api/collections/${id}`);
+    const userId = await fetch
     dispatch(getCollection(res.data.collection));
     return res;
 }
 
 export const addToCollection = (data) => async (dispatch) => {
-    const { movieId } = data;
-    const res = await fetch(`/api/collections/${id}`, {
+    const { movieId, userId, collectionId } = data;
+    const res = await fetch(`/api/collections/${collectionId}`, {
         method: 'POST',
         body: JSON.stringify({
-            collectionId,
+            userId,
             movieId
         }),
     });

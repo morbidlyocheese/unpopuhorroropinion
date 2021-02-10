@@ -10,16 +10,19 @@ module.exports = {
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(100),
+        defaultValue: 'Collection'
       },
       pictures: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        defaultValue: ''
       },
       movieId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.ARRAY(Sequelize.DataTypes.INTEGER)
       },
       watched: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       userId: {
         allowNull: false,

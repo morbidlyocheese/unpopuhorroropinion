@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import SearchBar from '../Search/Searchbar';
-import MoviesPage from '../../components/MoviePage/MoviesPage';
+// import MoviesPage from '../../components/MoviePage/MoviesPage';
 
 import './Navigation.css';
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -8,12 +8,12 @@ import AddMovie from '../../components/CollectionPage/AddMovie';
 import './MoviePage.css';
 
 function MoviePage() {
-    const [collection, setCollection] = useState([]);
+    // const [collection, setCollection] = useState([]);
 
     const dispatch = useDispatch();
     const baseUrl = 'https://image.tmdb.org/t/p/w500';
     const movie = useSelector(state => state.movies);
-    const collections = useSelector(state => state.collection);
+    // const collections = useSelector(state => state.collection);
     const { id } = useParams();
 
     useEffect(() => {

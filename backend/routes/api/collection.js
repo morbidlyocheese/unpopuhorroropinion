@@ -4,48 +4,37 @@ const asyncHandler = require("express-async-handler");
 
 const { User, Collection } = require('../../db/models');
 
-// all collections by a user
+// get movie collections
 router.get(
     '/',
     asyncHandler(async (req, res) => {
-        const collection = await Collection.findAll({
+        const collectionList = await Collection.findAll({
             include: User
         });
 
-        return res.json({
-            collections: collection
-        });
-    })
+        return res.json({ collections: collectionList });
+    }),
 );
 
-// single collection
+// get collection by userId
 router.get(
     '/:id(\\d+)',
     asyncHandler(async (req, res) => {
         const collectionId = parseInt(req.params.id);
-        const collection = await Collection.findByPk(collectionId, {
-            include: [{ model: User}]
+        const collectionOne = await Collection.findByPk(collectionId, {
+            include: [{ model: User }]
         });
 
-        return res.json({
-            collection
-        });
-    })
-);
-
-// create a collection
-router.post(
-    '/:id(\\d+)',
-    asyncHandler(async (req, res) => {
-        const userId = res.locals.user.dataValues.id;
-        const collectionId = parseInt(req.params.id, 10);
-
-        const collection = await Collection.findOne({
-            where: {
-                collectionId: collectionId,
-                userId: userId
+        const collectionList = collectionOne.map((collection) => {
+            return {
+                name: collection.name,
+                pictures: collection.pictures,
+                movieId: collection.movieId,
+                watched: collection.watched
             }
         });
+
+        return res.json({ collectionList });
     })
 );
 
@@ -53,20 +42,21 @@ router.post(
 router.post(
     '/',
     asyncHandler(async (req, res) => {
-        const { movieId } = req.body;
+        const userId = parseInt(req.params.id, 10);
+        const user = await User.findByPk(userId);
+        const { movie } = req.body;
+        const collection = user.collection;
 
-        const newMovie = await Collection.create({
-            movieId
-        });
+        if (collection.includes(movie)) {
+            res.json('You already have this movie in your collection!');
+            return;
+        }
 
-        const collection = await Collection.findByPk(collectionId, {
-            include: [{ model: User }]
-        });
+        collection.push(movie);
 
-        return res.json({
-            collection
-        });
-    }),
-);
+        await user.update({ collection });
+        res.json(collection);
+    }
+));
 
 module.exports = router;

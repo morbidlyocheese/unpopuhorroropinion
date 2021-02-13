@@ -93,3 +93,11 @@ body {
     padding: 10px;
     box-shadow: 0 8px 8px 0 rgba(33, 39, 56, 0.2);
 }
+
+.collection-dropdown {
+    background-color: white;
+    border-radius: 5px;
+    height: 40px;
+    width: 90px;
+    font-family: 'Big Shoulders Display', cursive;
+}

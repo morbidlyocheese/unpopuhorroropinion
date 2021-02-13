@@ -1,6 +1,3 @@
-const express = require('express');
-const router = express.Router();
-const asyncHandler = require("express-async-handler");
 const fetch = require('node-fetch')
 
 apiKey = process.env.API_KEY;

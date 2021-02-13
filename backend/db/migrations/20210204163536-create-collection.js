@@ -18,7 +18,8 @@ module.exports = {
         defaultValue: ''
       },
       movieId: {
-        type: Sequelize.ARRAY(Sequelize.DataTypes.INTEGER)
+        type: Sequelize.ARRAY(Sequelize.DataTypes.INTEGER),
+        defaultValue: []
       },
       watched: {
         type: Sequelize.BOOLEAN,

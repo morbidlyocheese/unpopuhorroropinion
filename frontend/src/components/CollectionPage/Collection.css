@@ -51,3 +51,8 @@
   transform: translateY(-10%);
   transition-duration: 1s;
 }
+
+.collection-list-item {
+  color: white;
+  font-family: 'Big Shoulders Display', cursive;
+}

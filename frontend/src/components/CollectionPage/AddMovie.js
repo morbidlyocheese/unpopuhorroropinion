@@ -7,31 +7,45 @@ import * as collectionActions from '../../store/collection';
 
 function AddMovie() {
     const dispatch = useDispatch();
-    const { movieId } = useParams();
-    const collections = useSelector((state) => state.collection);
-    const [collection, setCollection] = useState([]);
+    const { id } = useParams();
+    const user = useSelector(state => state.session.user);
+    const collections = useSelector((state) => state.collection.collections);
+    const [collectionId, setCollectionId] = useState(0);
 
-    // const userId = useSelector((state) => state.session.user.id);
+    const [responseHeader, setResponseHeader] = useState('');
 
-    // const [movie, addMovie] = useState([]);
-
+    if (collections.length !== 1 && collectionId) {
+        setCollectionId(collections[0].id);
+    }
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(collectionActions.addToCollection({ collection: movieId }));
+        dispatch(collectionActions.addToCollection(id, collectionId, user.id))
+            .then(response => {
+                setResponseHeader(response);
+                dispatch(collectionActions.getAllCollections());
+            });
+    }
+    
+    const onChange = (e) => { 
+        setCollectionId(parseInt(e.target.value)); 
     }
 
-    const handleChange = (e) => {
-        setCollection({ value: e.target.value });
-    }
 
     return (
         <div className='add-movie-container'>
-            <form onSubmit={handleSubmit}>
-                <select value={collection.value} onChange={handleChange}>
-                    <option value={collections.name}>{collections.name}</option>
-                </select>
-                <button type='submit' className='add-movie-button'>Add To Collection</button>
+            <form className='add-dropdown' onSubmit={handleSubmit}>
+                <select className='add-dropdown' onChange={onChange} value={collectionId}>
+                            <option className='add-dropdown' value='0' disabled={collectionId !== 0}>No Collection</option>
+                        {collections && collections.map((collection) => (
+                            <>
+                            <option className='add-dropdown' value={collection.id} key={collection.id}>{collection.name}</option>
+                            </>
+                        ))}
+                    </select>
+                <button className='add-dropdown add-button' type='submit'>Add To Collection</button>
             </form>
+            {responseHeader.length ? <h4 className='response-text'>{responseHeader}</h4> : null}
         </div>
     )
 }

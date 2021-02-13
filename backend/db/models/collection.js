@@ -17,11 +17,13 @@ module.exports = (sequelize, DataTypes) => {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      foreignKey: 'userId'
+      references: { model: 'Users' },
     }  
   }, {});
   Collection.associate = function(models) {
-    Collection.belongsTo(models.User);
+    Collection.belongsTo(models.User, {
+      foreignKey: 'userId'
+    });
   };
   return Collection;
 };

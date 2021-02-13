@@ -1,14 +1,14 @@
-import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import SearchBar from '../Search/Searchbar';
-// import MoviesPage from '../../components/MoviePage/MoviesPage';
+import CollectionDropdown from './CollectionDropdown';
 
 import './Navigation.css';
+import { useParams } from 'react-router-dom';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -18,11 +18,11 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <div className='navbar-container'>
-                    {/* <NavLink className='home' exact to="/">Home</NavLink> */}
                     <a className='discover' href='/movies/discover'>Home</a>
+                    <CollectionDropdown className='collection-dropdown'/>
                     <SearchBar className='searchbar'/>
                 </div>
-                    <ProfileButton className='profile-button' user={sessionUser}/>
+                <ProfileButton className='profile-button' user={sessionUser}/>
             </>
         );
     } else {

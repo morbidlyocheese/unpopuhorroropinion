@@ -21,6 +21,8 @@ router.use('/movies/search', MovieController.search);
 router.use('/movies/details/:id', MovieController.details);
 
 // collection routes
+router.use('/collections', collectionRouter);
 router.use('/collections/:id', collectionRouter);
+router.use('/collections/:id?movie=:id', collectionRouter);
 
 module.exports = router;

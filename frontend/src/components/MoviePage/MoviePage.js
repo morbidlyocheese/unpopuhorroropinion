@@ -8,12 +8,9 @@ import AddMovie from '../../components/CollectionPage/AddMovie';
 import './MoviePage.css';
 
 function MoviePage() {
-    // const [collection, setCollection] = useState([]);
-
     const dispatch = useDispatch();
     const baseUrl = 'https://image.tmdb.org/t/p/w500';
-    const movie = useSelector(state => state.movies);
-    // const collections = useSelector(state => state.collection);
+    const movie = useSelector(state => state.movies);    
     const { id } = useParams();
 
     useEffect(() => {
@@ -21,7 +18,7 @@ function MoviePage() {
     }, [dispatch, id]);
 
     return (     
-        <div className='movie-outer-container'>
+        <div className='movie-outer-container movie-div'>
             <div className='movie-inner1-container'>
                 <div className='movie-title'>{movie.title}</div>
                 <div className='movie-tagline'>{movie.tagline}</div>

@@ -3,14 +3,13 @@ const router = express.Router();
 const asyncHandler = require("express-async-handler");
 
 const { User, Collection } = require('../../db/models');
+const { requireAuth } = require('../../utils/auth');
 
 // get movie collections
 router.get(
     '/',
     asyncHandler(async (req, res) => {
-        const collectionList = await Collection.findAll({
-            include: User
-        });
+        const collectionList = await Collection.findAll();
 
         return res.json({ collections: collectionList });
     }),
@@ -19,43 +18,49 @@ router.get(
 // get collection by userId
 router.get(
     '/:id(\\d+)',
+    requireAuth,
     asyncHandler(async (req, res) => {
+        const userId = req.user.id;
         const collectionId = parseInt(req.params.id);
+        
         const collectionOne = await Collection.findByPk(collectionId, {
-            include: [{ model: User }]
+            where: {
+                userId: userId
+            }
         });
-
-        const collectionList = collectionOne.map((collection) => {
-            return {
-                name: collection.name,
-                pictures: collection.pictures,
-                movieId: collection.movieId,
-                watched: collection.watched
+        
+        return res.json({ collectionOne });
+    })
+);
+    
+// add movie to collection
+router.post(
+    '/:id(\\d+)',
+    requireAuth,
+    asyncHandler(async (req, res) => {
+        const userId = req.user.id;
+        const collectionId = parseInt(req.params.id, 10);
+        const collections = await Collection.findByPk(collectionId, {
+            where: {
+                userId: userId
             }
         });
 
-        return res.json({ collectionList });
-    })
-);
+        try {
+            let { movie } = req.body;
+            movie = +movie
 
-// add movie to collection
-router.post(
-    '/',
-    asyncHandler(async (req, res) => {
-        const userId = parseInt(req.params.id, 10);
-        const user = await User.findByPk(userId);
-        const { movie } = req.body;
-        const collection = user.collection;
+            if (collections && collections.movieId.includes(movie)) {
+                res.json({ success: false, reason: 'You already have this movie in your collection!' });
+                return;
+            }
 
-        if (collection.includes(movie)) {
-            res.json('You already have this movie in your collection!');
-            return;
+            await collections.update({ movieId: [...collections.movieId, movie] });
+
+            res.json({ success: true });
+        } catch(e) {
+            res.json({ success: false, reason: 'Something went wrong, please try again!' });
         }
-
-        collection.push(movie);
-
-        await user.update({ collection });
-        res.json(collection);
     }
 ));
 

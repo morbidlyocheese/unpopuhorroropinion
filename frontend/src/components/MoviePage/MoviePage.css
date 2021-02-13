@@ -1,11 +1,16 @@
 .movie-outer-container {
     display: flex;
-    max-height: 600px;
+    max-height: 400px;
     max-width: 400px;
     flex-direction: row;
     margin-top: 70px;
     background-color: white;
     border-radius: 5px;
+}
+
+.movie-div {
+    height: 450px;
+    max-height: 500px;
 }
 
 .movie-inner1-container {

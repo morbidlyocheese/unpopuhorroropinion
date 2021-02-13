@@ -1,0 +1,13 @@
+.add-dropdown {
+    background-color: white;
+    border-radius: 5px;
+    height: 40px;
+    width: 80px;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.add-button {
+    height: 40px;
+    width: 80px;
+    font-family: 'Big Shoulders Display', cursive;
+}

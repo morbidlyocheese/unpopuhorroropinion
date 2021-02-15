@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 import ProfileButton from './ProfileButton';
@@ -8,7 +8,7 @@ import SearchBar from '../Search/Searchbar';
 import CollectionDropdown from './CollectionDropdown';
 
 import './Navigation.css';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);

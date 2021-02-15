@@ -19,12 +19,12 @@ function collections(collections) {
     }
 }
 
-function add(movie) {
-    return {
-        type: ADD_TO_COLLECTION,
-        payload: movie
-    }
-}
+// function add(movie) {
+//     return {
+//         type: ADD_TO_COLLECTION,
+//         payload: movie
+//     }
+// }
 
 // single collection
 export const getCollection = (collectionId) => async (dispatch) => {
@@ -54,7 +54,7 @@ export const addToCollection = (movieId, collectionId, userId) => async (dispatc
     } else {
         return res.data.reason;
     }
-    dispatch(getCollection(res.data.collections));
+    // dispatch(getCollection(res.data.collections));
 }
 
 const collectionReducer = (state = { collection: [], collections: [] }, action) => {

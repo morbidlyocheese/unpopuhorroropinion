@@ -8,7 +8,7 @@ import './Navigation.css';
 function CollectionDropdown() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const user = useSelector(state => state.session.user);
+    // const user = useSelector(state => state.session.user);
     const collections = useSelector((state) => state.collection.collections);
     const [collectionId, setCollectionId] = useState(0);
 

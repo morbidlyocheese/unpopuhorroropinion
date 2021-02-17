@@ -4,6 +4,7 @@ const GET_COLLECTION = 'movie/collection';
 const GET_ALL_COLLECTIONS = 'movie/collections';
 
 const ADD_TO_COLLECTION = 'movie/add';
+const GET_MOVIES = 'movies/collection';
 
 function collection(collection) {
     return {
@@ -19,6 +20,13 @@ function collections(collections) {
     }
 }
 
+function movies(movies) {
+    return {
+        type: GET_MOVIES,
+        payload: movies
+    }
+}
+
 // function add(movie) {
 //     return {
 //         type: ADD_TO_COLLECTION,
@@ -29,7 +37,10 @@ function collections(collections) {
 // single collection
 export const getCollection = (collectionId) => async (dispatch) => {
     const res = await fetch(`/api/collections/${collectionId}`);
-    dispatch(collection(res.data.collection));
+    dispatch(collection(res.data.collectionOne.id));
+    console.log('res ->', res)
+    dispatch(movies(res.data.movie));
+
     return res;
 }
 
@@ -68,6 +79,8 @@ const collectionReducer = (state = { collection: [], collections: [] }, action) 
             return newState;
         case GET_ALL_COLLECTIONS:
             return {...state, collections: action.payload};
+        case GET_MOVIES:
+            return {...state, movies: action.payload};
         default:
             return state;
     }

@@ -31,7 +31,7 @@ function Collection() {
             <div className='collection-list-container'>
                 <ul className='collection-list-items'>
                     {movies && movies.map((movie) => (
-                        <li className='collection-list-item' key={movie}>{dispatch(movieActions.movieDetails(movie))}</li>
+                        <li className='collection-list-item' key={movie}></li>
                     ))}
                 </ul>
             </div>

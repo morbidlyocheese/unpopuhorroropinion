@@ -41,6 +41,7 @@
     color: black;
 }
 
-p {
+.rating {
+    color: black;
     font-weight: bold;
 }

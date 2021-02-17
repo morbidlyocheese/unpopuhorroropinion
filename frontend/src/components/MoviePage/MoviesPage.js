@@ -27,7 +27,7 @@ function MoviesList() {
                         </div>
                         <div className='movie-inner-container'>
                             <div className='movie-bio'>{movie.overview}</div>
-                            <div className='movie-vote'><p>Rating: </p>{movie.vote_average}</div>
+                            <div className='movie-vote'><p className='rating'>Rating: </p>{movie.vote_average}</div>
                         </div>
                     </div>
                 </Link>

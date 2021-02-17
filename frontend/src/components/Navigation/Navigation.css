@@ -17,7 +17,7 @@ body {
 
 .navbar-left {
     display: flex;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     color: black;
     align-items: center;
     font-family: 'Big Shoulders Display', cursive;
@@ -135,6 +135,8 @@ a:hover .title-bottom{
     background-color: #808080;
 }
 
+
+
 .profile-button {
     background-color: white;
     display: block;
@@ -170,9 +172,28 @@ a:hover .title-bottom{
 }
 
 .collection-dropdown {
+    display: flex;
+    justify-content: flex-start;
     background-color: white;
+    height: 40px;
+    width: auto;
+    border-radius: 5px;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.collection-form {
+    display: flex;
+    max-width: 150px;
+    justify-content: flex-start;
+}
+
+.collection-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 5px;
     height: 40px;
-    width: 90px;
+    width: 60px;
+    background-color: white;
     font-family: 'Big Shoulders Display', cursive;
 }

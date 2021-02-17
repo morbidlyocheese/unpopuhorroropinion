@@ -2,16 +2,15 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-right: 150px;
 	font-family: 'Big Shoulders Display', cursive;
 }
 
 .navbar-search-input {
-    height: 25px;
+    height: 30px;
     border-radius: 5px;
     justify-content: center;
 	font-family: 'Big Shoulders Display', cursive;
-    padding: 5px;
+    padding: 3px;
 }
 
 .navbar-search-submit {
@@ -20,6 +19,5 @@
     width: 60px;
     height: 40px;
     padding: 5px;
-    margin: 5px;
 }
 

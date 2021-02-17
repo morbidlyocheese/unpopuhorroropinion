@@ -19,7 +19,7 @@ const validateLogin = [
     handleValidationErrors,
 ];
 
-// Log in
+// login
 router.post(
     '/',
     validateLogin,
@@ -44,7 +44,7 @@ router.post(
     }),
 );
 
-// Log out
+// logout
 router.delete(
     '/',
     (_req, res) => {

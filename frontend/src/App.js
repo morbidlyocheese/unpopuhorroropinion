@@ -13,10 +13,12 @@ import { getAllCollections } from './store/collection';
 
 import './index.css'
 import SearchPage from "./components/Search/SearchPage";
+import SplashPage from "./components/SplashPage/Splash";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -26,15 +28,20 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
-        <Switch>
-          <Route path="/signup">
-            <SignupForm/>
+        <>
+          <Switch>
+            <Route path="/signup">
+              <SignupForm/>
+            </Route>
+          </Switch>
+          <Route exact path='/'>
+            <SplashPage/>
           </Route>
-        </Switch>
+        </>
       )}
       <div className='body-container'>
         <Route path='/movies/search'>
-          <SearchPage />
+          <SearchPage/>
         </Route>
         <Route path='/movies/discover'>
           <MoviesList/>

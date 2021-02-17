@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 
-import * as sessionActions from "../../store/session";
 import './AboutModal.css';
 
 import angellist from './icons/angellist.png';
@@ -9,10 +7,6 @@ import github from './icons/github.png';
 import linkedin from './icons/linkedin.png';
 
 function AboutModal() {
-    const [credential, setCredential] = useState("");
-    const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
-
     return (
         <div className='about-modal-container'>
             <a className='about-link' href='https://angel.co/u/damien-darko' target="_blank">

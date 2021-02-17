@@ -21,7 +21,7 @@ function SearchPage() {
                                 <div className='movie-bio'>{movie.overview}</div>
                                 <div className='vote'>
                                     <div className='movie-vote'>
-                                    <p>Rating: </p>{movie.vote_average}</div>
+                                    <p className='rating'>Rating: </p>{movie.vote_average}</div>
                                 </div>
                             </div>
                         </Link>

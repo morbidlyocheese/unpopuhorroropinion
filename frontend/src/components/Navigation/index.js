@@ -8,17 +8,22 @@ import SearchBar from '../Search/Searchbar';
 import CollectionDropdown from './CollectionDropdown';
 
 import './Navigation.css';
-// import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Navigation({ isLoaded }) {
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
+
+    const handleClick = () => {
+        history.push('/movies/discover');
+    }
 
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
             <>
                 <div className='navbar-left'>
-                    <a className='discover' href='/movies/discover'>Home</a>
+                    <input type='button' onClick={handleClick} value='Home' className='discover'/>
                     <CollectionDropdown className='collection-dropdown'/>
                     <SearchBar className='searchbar'/>
                 </div>

@@ -1,0 +1,11 @@
+.splash-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding-top: 60px;
+}
+
+p {
+    color: white;
+}

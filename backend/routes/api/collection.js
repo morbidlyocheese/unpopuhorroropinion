@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
+const fetch = require('node-fetch');
 
 const { User, Collection } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
@@ -24,25 +25,26 @@ router.get(
     requireAuth,
     asyncHandler(async (req, res) => {
         const userId = req.user.id;
-        const collectionId = parseInt(req.params.id);
+        const collectionId = parseInt(req.params.id, 10);
         
-        const collectionOne = await Collection.findByPk(collectionId, {
-            where: {
-                userId: userId
-            }
-        });
+        const collectionOne = await Collection.findByPk(collectionId);
+
+        // const collection = await collectionOne.json();
         
-        const movies = collectionOne.movieId.map((movie, i) => {
-            return {
-                id: movie[i]
-            }
-        })
-        const url = `${apiUrl}/movie/${parseInt(movies)}?api_key=${apiKey}&language=en-US`;
-        let response = await fetch(url);
-        let data = await response.json();
+        const movies = collectionOne.movieId;
+        const movieIds = [];
+
+        for (let i = 0; i <= movies.length; i++) {
+            const url = `${apiUrl}/movie/${i}?api_key=${apiKey}&language=en-US`;
+            let response = await fetch(url);
+            let data = await response.json();
+            movieIds.push(data);
+        }
+
         // return res.status(200).send(data);
 
-        return res.json({ collectionOne, movies: [data] });
+        // console.log('res -> ', response.json)
+        return { response: res.json({ collectionOne, movie: movieIds })};
     })
 );
     

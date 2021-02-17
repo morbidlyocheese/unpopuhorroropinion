@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 
+import About from '../AboutModal/About';
+
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
 
@@ -31,7 +33,8 @@ function ProfileButton({ user }) {
     };
 
     return (
-        <>
+        <div className='navbar-right'>
+            <About/>
             <button className='profile-button' onClick={openMenu}>
                 {user.username}
             </button>
@@ -47,7 +50,7 @@ function ProfileButton({ user }) {
                     </>
                 )}
             </div>
-        </>
+        </div>
     );
 }
 

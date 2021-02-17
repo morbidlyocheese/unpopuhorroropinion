@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const sessionRouter = require('./session');
 const usersRouter = require('./users');
+
 const MovieController = require('./movies');
-// const movieRouter = require('./movies');
 const collectionRouter = require('./collection');
+const aboutRouter = require('./about');
 
 // GET /api/restore-user
 const { restoreUser } = require('../../utils/auth.js');
@@ -24,5 +25,8 @@ router.use('/movies/details/:id', MovieController.details);
 router.use('/collections', collectionRouter);
 router.use('/collections/:id', collectionRouter);
 router.use('/collections/:id?movie=:id', collectionRouter);
+
+// about route
+router.use('/about', aboutRouter);
 
 module.exports = router;

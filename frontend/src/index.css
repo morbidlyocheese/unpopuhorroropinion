@@ -1,18 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;400;900&family=Creepster&display=swap');
 /* font-family: 'Creepster', cursive; */
 
-.navbar-container {
-    top: 0;
-    left: 0;
-    height: 40px;
-	width: 100%;
-	position: fixed;
-    z-index: 1;
-    display: flex;
-    background-color: #808080;
-	align-items: center;
-}
-
 .body-container {
 	display: flex;
 	justify-content: center;
@@ -22,6 +10,10 @@
 body {
 	font-family: 'Big Shoulders Display', cursive;
 }
+
+
+
+
 
 
 /* reset styling */

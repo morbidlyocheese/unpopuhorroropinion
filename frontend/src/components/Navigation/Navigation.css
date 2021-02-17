@@ -3,44 +3,42 @@ body {
 	font-family: 'Big Shoulders Display', cursive;
 }
 
-.navbar-container {
+.navbar-outer-container {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+	width: 100%;
+	position: fixed;
+    z-index: 1;
+    display: flex;
+    background-color: #808080;
+	align-items: center;
+}
+
+.navbar-left {
     display: flex;
     justify-content: flex-start;
-}
-
-.navbar-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 60px;
-	text-align: center;
-    font-size: 12px;
-    border-radius: 5px;
-    list-style-type: none;
-    background-color: white;
     color: black;
-	font-family: 'Big Shoulders Display', cursive;
-}
-
-.home-container {
-    display: flex;
-}
-
-.navbar-link {
-    justify-content: flex-start;
-    display: flex;
-    height: 40px;
-    width: 60px;
-    color: black;
-    background-color: white;
-    border-radius: 5px;
     align-items: center;
-    justify-content: center;
     font-family: 'Big Shoulders Display', cursive;
 }
 
-.home, .discover {
+.navbar-center {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    margin-right: 370px;
+    font-family: 'Creepster', cursive;
+}
+
+.navbar-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home, 
+.discover,
+.about {
     font-family: 'Big Shoulders Display', cursive;
     display: flex;
     justify-content: center;
@@ -53,6 +51,21 @@ body {
     text-decoration: none;
 }
 
+@media only screen and (max-width: 1102px) {
+    .title {
+        display: none;
+    }
+
+    .navbar-right {
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+.title:hover {
+    color: black;
+}
+
 .active {
     color: white;
     background-color: #808080;
@@ -60,8 +73,6 @@ body {
 
 .profile-button {
     background-color: white;
-    position: absolute;
-    right: 0;
     display: block;
     border-radius: 5px;
     height: 40px;

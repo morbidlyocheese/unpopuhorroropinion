@@ -7,7 +7,7 @@ import './Collection.css';
 function Collection() {
     const dispatch = useDispatch();
     const collections = useSelector((state) => state.collection.collections);
-    const movies = collections[0].movieId;
+    const movies = collections;
     // const [id, setId] = useState();
 
     // const baseUrl = 'https://image.tmdb.org/t/p/w500';

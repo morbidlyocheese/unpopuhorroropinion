@@ -5,6 +5,9 @@ const asyncHandler = require("express-async-handler");
 const { User, Collection } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 
+apiKey = process.env.API_KEY;
+apiUrl = process.env.API_URL;
+
 // get movie collections
 router.get(
     '/',
@@ -15,7 +18,7 @@ router.get(
     }),
 );
 
-// get collection by userId
+// get collection by collectionId
 router.get(
     '/:id(\\d+)',
     requireAuth,
@@ -29,7 +32,17 @@ router.get(
             }
         });
         
-        return res.json({ collectionOne });
+        const movies = collectionOne.movieId.map((movie, i) => {
+            return {
+                id: movie[i]
+            }
+        })
+        const url = `${apiUrl}/movie/${parseInt(movies)}?api_key=${apiKey}&language=en-US`;
+        let response = await fetch(url);
+        let data = await response.json();
+        // return res.status(200).send(data);
+
+        return res.json({ collectionOne, movies: [data] });
     })
 );
     

@@ -1,0 +1,19 @@
+#modal-content {
+    display: flex;
+    height: 200px;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.678);
+    border-radius: 5px;
+    justify-content: center;
+    padding: 20px;
+	font-family: 'Big Shoulders Display', cursive;
+}
+
+.about-modal-container {
+    display: flex;
+    align-items: center;
+}
+
+.about-link:hover {
+    filter: invert(100%);
+}

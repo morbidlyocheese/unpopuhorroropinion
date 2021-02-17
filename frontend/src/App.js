@@ -24,16 +24,14 @@ function App() {
 
   return (
     <>
-      <div className='navbar-container'>
-          <Navigation isLoaded={isLoaded} />
-          {isLoaded && (
-            <Switch>
-              <Route path="/signup">
-                <SignupForm/>
-              </Route>
-            </Switch>
-          )}
-      </div>
+      <Navigation isLoaded={isLoaded} />
+      {isLoaded && (
+        <Switch>
+          <Route path="/signup">
+            <SignupForm/>
+          </Route>
+        </Switch>
+      )}
       <div className='body-container'>
         <Route path='/movies/search'>
           <SearchPage />

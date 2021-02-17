@@ -17,26 +17,29 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <div className='navbar-container'>
+                <div className='navbar-left'>
                     <a className='discover' href='/movies/discover'>Home</a>
                     <CollectionDropdown className='collection-dropdown'/>
                     <SearchBar className='searchbar'/>
+                </div>
+                <div className='navbar-center'>
+                    <a href='/movies/discover' className='title'>Unpopuhorroropinion</a>
                 </div>
                 <ProfileButton className='profile-button' user={sessionUser}/>
             </>
         );
     } else {
         sessionLinks = (
-            <div className='navbar-container'>
+            <>
                 <LoginFormModal className='login-modal'/>
                 <SignupFormModal className='signup-modal'/>
-            </div>
+            </>
         );
     }
 
     return (
         <>
-            <div className='navbar-container'>
+            <div className='navbar-outer-container'>
                 {isLoaded && sessionLinks}
             </div>
         </>

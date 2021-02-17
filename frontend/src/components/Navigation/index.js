@@ -23,7 +23,9 @@ function Navigation({ isLoaded }) {
                     <SearchBar className='searchbar'/>
                 </div>
                 <div className='navbar-center'>
-                    <a href='/movies/discover' className='title'>Unpopuhorroropinion</a>
+                    <a href='/movies/discover' className='title title-top'>
+                        <span>Unpopuhorroropinion</span>
+                    </a>
                 </div>
                 <ProfileButton className='profile-button' user={sessionUser}/>
             </>

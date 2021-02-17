@@ -12,8 +12,16 @@
 .about-modal-container {
     display: flex;
     align-items: center;
+    transition: .2s ease;
+}
+
+.github {
+    width: 60px;
+    height: 60px;
 }
 
 .about-link:hover {
+    transition: all 1s ease-out;
+    transform: scale(1.5);
     filter: invert(100%);
 }

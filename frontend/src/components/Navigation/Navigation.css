@@ -62,8 +62,72 @@ body {
     }
 }
 
-.title:hover {
+.title {
+    position: relative;
+    font-size: 40px;
+    line-height: 40px;
+    text-transform: uppercase;
+    text-decoration: none;
     color: black;
+    margin: 30px;
+    padding: 0 20px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.title > span{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    transition: transform 0.3s;
+    transition-delay: 0.1s;
+}
+
+
+.title > span > span{
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.title > span.title-top > span{
+    top: auto;
+    bottom: 0;
+    text-align: center;
+}
+
+
+.title::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+
+    transform: translate3d(-150%, -50%,0);
+    transition: transform 0.3s;
+}
+
+.title:hover::after{
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.title:hover .title-top{
+    transform: translate3d(5%, 0, 0);
+}
+
+
+a:hover .title-bottom{
+    transform: translate3d(-5%, 0, 0);
+}
+
+.title:hover {
+    color: red;
 }
 
 .active {

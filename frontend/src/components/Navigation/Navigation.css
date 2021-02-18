@@ -17,7 +17,6 @@ body {
 
 .navbar-left {
     display: flex;
-    /* justify-content: flex-start; */
     color: black;
     align-items: center;
     font-family: 'Big Shoulders Display', cursive;
@@ -25,15 +24,13 @@ body {
 
 .navbar-center {
     display: flex;
-    justify-content: center;
     font-size: x-large;
-    margin-right: 370px;
+    margin-right: 260px;
     font-family: 'Creepster', cursive;
 }
 
 .navbar-right {
     display: flex;
-    justify-content: flex-end;
 }
 
 .home, 
@@ -52,13 +49,8 @@ body {
 }
 
 @media only screen and (max-width: 1102px) {
-    .title {
+    .title-top {
         display: none;
-    }
-
-    .navbar-right {
-        display: flex;
-        justify-content: flex-start;
     }
 }
 
@@ -134,8 +126,6 @@ a:hover .title-bottom{
     color: white;
     background-color: #808080;
 }
-
-
 
 .profile-button {
     background-color: white;

@@ -38,9 +38,8 @@ function movies(movies) {
 export const getCollection = (collectionId) => async (dispatch) => {
     const res = await fetch(`/api/collections/${collectionId}`);
     dispatch(collection(res.data.collectionOne.id));
-    console.log('res ->', res)
     dispatch(movies(res.data.movie));
-
+    console.log('data ---> ', res.data);
     return res;
 }
 

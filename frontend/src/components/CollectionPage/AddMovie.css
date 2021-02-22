@@ -11,3 +11,12 @@
     width: 80px;
     font-family: 'Big Shoulders Display', cursive;
 }
+
+.response-text {
+    display: flex;
+    margin-top: 45px;
+    font-weight: 500;
+    font-size: large;
+    color: red;
+    font-family: 'Big Shoulders Display', cursive;
+}

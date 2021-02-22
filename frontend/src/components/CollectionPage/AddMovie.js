@@ -20,6 +20,7 @@ function AddMovie() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('id ->', id)
         dispatch(collectionActions.addToCollection(id, collectionId, user.id))
             .then(response => {
                 setResponseHeader(response);

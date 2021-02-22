@@ -35,7 +35,8 @@ router.get(
         const movieIds = [];
 
         for (let i = 0; i <= movies.length; i++) {
-            const url = `${apiUrl}/movie/${i}?api_key=${apiKey}&language=en-US`;
+            const movie = movies[i];
+            const url = `${apiUrl}/movie/${movie}?api_key=${apiKey}&language=en-US`;
             let response = await fetch(url);
             let data = await response.json();
             movieIds.push(data);
@@ -43,7 +44,7 @@ router.get(
 
         // return res.status(200).send(data);
 
-        // console.log('res -> ', response.json)
+        console.log('res -> ', movies)
         return { response: res.json({ collectionOne, movie: movieIds })};
     })
 );

@@ -11,6 +11,12 @@ body {
 	font-family: 'Big Shoulders Display', cursive;
 }
 
+button:hover,
+input:hover {
+	background-color: black;
+	color: white;
+}
+
 
 
 

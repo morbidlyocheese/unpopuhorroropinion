@@ -2,6 +2,13 @@
   margin-top: 70px;
 }
 
+.collection-name {
+  color: white;
+  font-size: larger;
+  font-weight: 700;
+  font-family: 'Big Shoulders Display', cursive;
+}
+
 /* shelf */
 .collection-inner-container {
   border: 5px solid #49311d;
@@ -10,6 +17,7 @@
   background-color: #312113;
   margin-left: 0;
   box-shadow: inset 5px 5px 15px 5px #18100a;
+  margin-bottom: 30px;
 }
 
 /* dvd */
@@ -28,16 +36,18 @@
 
 /* dvd sleeve */
 .collection-sleeve {
-  background-color: blue;
+  background-color: white;
+  flex-wrap: nowrap;
   height: 162px;
 }
 
 /* dvd name */
 .collection-text {
-  color: white;
+  color: black;
   margin-top: 8px;
-  padding: 2px;
+  padding: 8px 2px;
   transform: rotate(90deg);
+  list-style: none;
   font-family: 'Big Shoulders Display', cursive;
 }
 
@@ -52,7 +62,24 @@
   transition-duration: 1s;
 }
 
-.collection-list-item {
+.collection-list-item, 
+.movie-titles {
   color: white;
   font-family: 'Big Shoulders Display', cursive;
+}
+
+.collection-list-item {
+  list-style-type: disc;
+}
+
+.movie-titles {
+  font-weight: bold;
+  font-size: larger;
+  font-family: 'Big Shoulders Display', cursive;
+}
+
+.collection-list-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }

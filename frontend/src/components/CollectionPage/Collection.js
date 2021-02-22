@@ -1,42 +1,35 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import * as movieActions from '../../store/movie';
 import './Collection.css';
 
 function Collection() {
-    const dispatch = useDispatch();
-    const collections = useSelector((state) => state.collection.collections);
-    const movies = collections;
-    // const [id, setId] = useState();
-
-    // const baseUrl = 'https://image.tmdb.org/t/p/w500';
-    // const movie = useSelector(state => state.movies);  
-    // useEffect(() => {
-    //     dispatch(movieActions.movieDetails(id))
-    // }, [dispatch, id]);
+    const coll = useSelector((state) => state.collection.collections[0])
+    const collection = useSelector((state) => state.collection.movies);
 
     return (
         <div>
             <div className='collection-outer-container'>
+                <h1 className='collection-name'>{coll.name}:</h1>
                 <div className='collection-inner-container'>
-                    <div className='collection-case'>
-                        <div className='collection-sleeve'>
-                            <p className='collection-text'>Movie Title</p>
-                        </div>
-                    </div>
+                    {collection && collection.map((movie, i) => (
+                        (movie.success === undefined) ? <div className='collection-case'><div className='collection-sleeve'><p className='collection-text'>{movie.title}</p></div></div> : <></>
+                    ))}
                     <div className='collection-bottom'/>
                 </div>
             </div>
             <div className='collection-list-container'>
                 <ul className='collection-list-items'>
-                    {movies && movies.map((movie) => (
-                        <li className='collection-list-item' key={movie}></li>
+                    <p className='movie-titles'>Collection Titles:</p>
+                    {collection && collection.map((movie, i) => (
+                        (movie.success === undefined) ? <li className='collection-list-item'>{movie.title}</li> : <></>
                     ))}
                 </ul>
             </div>
         </div>
     )
 }
+
+
 
 export default Collection;

@@ -9,13 +9,13 @@ import linkedin from './icons/linkedin.png';
 function AboutModal() {
     return (
         <div className='about-modal-container'>
-            <a className='about-link' href='https://angel.co/u/damien-darko' target="_blank">
+            <a className='about-link' href='https://angel.co/u/damien-darko'rel="noreferrer" target="_blank">
                 <img src={angellist} alt='angellist'/>
             </a>
-            <a className='about-link' href='https://github.com/djangothesolarboy' target="_blank">
+            <a className='about-link' href='https://github.com/djangothesolarboy'rel="noreferrer" target="_blank">
                 <img src={github} alt='github'/>
             </a>
-            <a className='about-link' href='https://www.linkedin.com/in/damien-darko/' target="_blank">
+            <a className='about-link' href='https://www.linkedin.com/in/damien-darko/'rel="noreferrer" target="_blank">
                 <img src={linkedin} alt='linkedin'/>
             </a>
         </div>

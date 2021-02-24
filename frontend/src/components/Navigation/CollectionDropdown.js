@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import * as collectionActions from '../../store/collection';
 import './Navigation.css';
@@ -8,7 +8,6 @@ import './Navigation.css';
 function CollectionDropdown() {
     const dispatch = useDispatch();
     const history = useHistory();
-    // const user = useSelector(state => state.session.user);
     const collections = useSelector((state) => state.collection.collections);
     const [collectionId, setCollectionId] = useState(0);
 

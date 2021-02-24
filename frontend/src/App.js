@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import SignupForm from "./components/SignupFormModal";
 import * as sessionActions from "./store/session";
@@ -17,6 +17,7 @@ import SplashPage from "./components/SplashPage/Splash";
 
 function App() {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
   
   useEffect(() => {
@@ -37,22 +38,22 @@ function App() {
           <Route exact path='/'>
             <SplashPage/>
           </Route>
+          <div className='body-container'>
+            <Route path='/movies/search'>
+              {sessionUser ? <SearchPage/> : <Redirect to='/'/>}
+            </Route>
+            <Route path='/movies/discover'>
+              {sessionUser ? <MoviesList/> : <Redirect to='/'/>}
+            </Route>
+            <Route path='/movies/details/:id'>
+              {sessionUser ? <MoviePage/> : <Redirect to='/'/>}
+            </Route>
+            <Route path='/collections/:id'>
+              {sessionUser ? <Collection/> : <Redirect to='/'/>}
+            </Route>
+          </div>
         </>
       )}
-      <div className='body-container'>
-        <Route path='/movies/search'>
-          <SearchPage/>
-        </Route>
-        <Route path='/movies/discover'>
-          <MoviesList/>
-        </Route>
-        <Route path='/movies/details/:id'>
-          <MoviePage/>
-        </Route>
-        <Route path='/collections/:id'>
-          <Collection/>
-        </Route>
-      </div>
     </>
   );
 }

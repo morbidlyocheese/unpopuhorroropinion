@@ -44,7 +44,6 @@ router.get(
 
         // return res.status(200).send(data);
 
-        console.log('res -> ', movies)
         return { response: res.json({ collectionOne, movie: movieIds })};
     })
 );

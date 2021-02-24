@@ -4,13 +4,14 @@ import { useSelector } from 'react-redux';
 import './Collection.css';
 
 function Collection() {
+    const user = useSelector((state) => state.session.user)
     const coll = useSelector((state) => state.collection.collections[0])
     const collection = useSelector((state) => state.collection.movies);
 
     return (
         <div>
             <div className='collection-outer-container'>
-                <h1 className='collection-name'>{coll.name}:</h1>
+                <h1 className='collection-name'>{user.username}'s {coll.name}:</h1>
                 <div className='collection-inner-container'>
                     {collection && collection.map((movie, i) => (
                         (movie.success === undefined) ? <div className='collection-case'><div className='collection-sleeve'><p className='collection-text'>{movie.title}</p></div></div> : <></>

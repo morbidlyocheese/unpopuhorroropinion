@@ -18,12 +18,14 @@ function Navigation({ isLoaded }) {
         history.push('/movies/discover');
     }
 
+    // <input type='button' onClick={handleClick} value='Home' className='discover' />
+
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
             <>
                 <div className='navbar-left'>
-                    <input type='button' onClick={handleClick} value='Home' className='discover'/>
+                    <a href='/movies/discover' className='discover'>Home</a>
                     <CollectionDropdown className='collection-dropdown'/>
                     <SearchBar className='searchbar'/>
                 </div>

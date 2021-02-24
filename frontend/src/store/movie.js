@@ -19,6 +19,7 @@ function getMovie(movie) {
 
 export const movieList = () => async(dispatch) => {
     const res = await fetch('/api/movies/discover');
+    console.log(res.data)
     dispatch(getMovies(res.data));
     return res;
 }

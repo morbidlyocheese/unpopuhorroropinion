@@ -48,6 +48,11 @@ body {
     text-decoration: none;
 }
 
+.discover:hover {
+    background-color: black;
+    color: white;
+}
+
 @media only screen and (max-width: 1102px) {
     .title-top {
         display: none;

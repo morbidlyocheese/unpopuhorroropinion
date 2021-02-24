@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/djangothesolarboy/unpopuhorroropinion/issues"
   },
-  "homepage": "https://github.com/djangothesolarboy/unpopuhorroropinion#readme"
+  "homepage": "https://github.com/djangothesolarboy/unpopuhorroropinion#readme",
+  "dependencies": {
+    "immer": "^8.0.1"
+  }
 }

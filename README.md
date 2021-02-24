@@ -52,10 +52,10 @@ Collections | name, pictures, watched, userId, movieId
 
 Screenshots:
 ---
-[![Home page](https://i.gyazo.com/3ca65a0b308c1e852b3d05baee2436dc.png)](https://gyazo.com/3ca65a0b308c1e852b3d05baee2436dc)  
-[![Movie page](https://i.gyazo.com/d24ed33bb5ded170bcbc25ac64e881f7.png)](https://gyazo.com/d24ed33bb5ded170bcbc25ac64e881f7)  
-[![Login modal](https://i.gyazo.com/bdd466228387f53f93c854bc4d99f147.gif)](https://gyazo.com/bdd466228387f53f93c854bc4d99f147)  
-[![Signup modal](https://i.gyazo.com/506bc1010a953589307cd874d49818f0.gif)](https://gyazo.com/506bc1010a953589307cd874d49818f0)
+![Home page](./readme-resources/discover-page.gif)  
+![Movie page](./readme-resources/movie-page.png)  
+![Splash Page](./readme-resources/splashpage.png)  
+![Login](./readme-resources/login.gif)
 
 
 Technology Shields:

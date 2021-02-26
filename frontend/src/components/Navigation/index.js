@@ -8,17 +8,9 @@ import SearchBar from '../Search/Searchbar';
 import CollectionDropdown from './CollectionDropdown';
 
 import './Navigation.css';
-import { useHistory } from 'react-router-dom';
 
 function Navigation({ isLoaded }) {
-    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-
-    const handleClick = () => {
-        history.push('/movies/discover');
-    }
-
-    // <input type='button' onClick={handleClick} value='Home' className='discover' />
 
     let sessionLinks;
     if (sessionUser) {

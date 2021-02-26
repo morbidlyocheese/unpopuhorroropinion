@@ -1,4 +1,4 @@
-# [Unpopuhorroropinion](https://unpopuhorroropinion.herokuapp.com/) - 
+# [Unpopuhorroropinion](https://unpopuhorroropinion.com/)
 *by [Damien Darko](https://damiendarko.com/)*
 
 Table Of Contents:
@@ -17,7 +17,7 @@ Unpopunhorroropinion is a site where horror lovers can go to catalog their colle
 
 Application Architecture & Techonologies Used:
 ---
-[Unpopuhorroropinion](https://unpopuhorroropinion.herokuapp.com/) was built using Express NodeJS framework with a PostgreSQL(postgres) database on the backend. The frontend uses Javascript, HTML, CSS, React and Redux.
+[Unpopuhorroropinion](https://unpopuhorroropinion.com/) was built using Express NodeJS framework with a PostgreSQL(postgres) database on the backend. The frontend uses Javascript, HTML, CSS, React and Redux.
 
 Frontend Overview:
 ---

@@ -10,8 +10,6 @@ function LoginForm() {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
@@ -20,6 +18,15 @@ function LoginForm() {
                 if (res.data && res.data.errors) setErrors(res.data.errors);
             }
         );
+    };
+
+    const demo = (e) => {
+        e.preventDefault();
+        setErrors([]);
+        return dispatch(sessionActions.demoLogin( ))
+            .catch((res) => {
+                if (res.data && res.data.errors) setErrors(res.data.errors);
+            });
     };
 
     return (
@@ -56,6 +63,9 @@ function LoginForm() {
                 </div>
                 <div className='login-form-submit-container'>
                     <button className='login-form-submit' type="submit">Login</button>
+                </div>
+                <div className='demo-container'>
+                    <button className='demo-login' onClick={demo}>Demo-login</button>
                 </div>
             </form>
         </div>

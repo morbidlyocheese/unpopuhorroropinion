@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;400;900&family=Creepster&display=swap');
-/* font-family: 'Creepster', cursive; */
 
 .body-container {
 	display: flex;
@@ -9,6 +8,15 @@
 
 body {
 	font-family: 'Big Shoulders Display', cursive;
+}
+
+body {
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-color: black;
+	background-image: url('upho-white.png');
+	position: static;
+	
 }
 
 button:hover,

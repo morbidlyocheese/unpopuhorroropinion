@@ -70,6 +70,7 @@
 
 .collection-list-item {
   list-style-type: disc;
+  padding: 2px;
 }
 
 .movie-titles {
@@ -82,5 +83,7 @@
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  background-color: #808080;
+  background-color: #808080d8;
+  padding: 20px;
+  border-radius: 5px;
 }

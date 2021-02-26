@@ -25,7 +25,8 @@
 }
 
 .login-form-submit,
-.login {
+.login,
+.demo-login {
     padding: 5px;
     width: 60px;
     height: 40px;
@@ -34,10 +35,15 @@
 	font-family: 'Big Shoulders Display', cursive;
 }
 
+.demo-container {
+    display: flex;
+    justify-content: center;
+}
+
 .login-form-submit:hover,
 .login:hover {
     color: white;
-    background-color: #808080;
+    background-color: black;
 }
 
 .login-form-username-container, 

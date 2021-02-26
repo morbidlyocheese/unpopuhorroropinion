@@ -30,12 +30,12 @@ export const login = (user) => async (dispatch) => {
 };
 
 export const demoLogin = () => async (dispatch) => {
-    let email = "demo@user.io";
+    let credential = "Demo-lition";
     let password = "password";
     const response = await fetch('/api/session', {
         method: 'POST',
         body: JSON.stringify({
-            email,
+            credential,
             password,
         }),
     });

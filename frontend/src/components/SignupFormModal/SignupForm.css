@@ -38,7 +38,7 @@
 .signup-form-submit:hover,
 .signup:hover {
     color: white;
-    background-color: #808080;
+    background-color: black;
 }
 
 .signup-form-username-container, 
@@ -57,6 +57,11 @@
     display: flex;
     justify-content: center;
     margin: 10px;
+}
+
+.submit-button-container {
+    display: flex;
+    justify-content: center;
 }
 
 .signup-errors {

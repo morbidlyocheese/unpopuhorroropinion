@@ -74,7 +74,9 @@ function SignupForm() {
                         required
                     />
                 </label>
+            <div className='submit-button-container'>
                 <button className='signup-form-submit submit' type="submit">Sign Up</button>
+            </div>
             </form>
         </div>
     );

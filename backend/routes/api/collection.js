@@ -79,4 +79,37 @@ router.post(
     }
 ));
 
+// new collection
+router.post(
+    '/',
+    requireAuth,
+    asyncHandler(async (req, res) => {
+        const { name, userId } = req.body;
+
+        const newCollection = await Collection.create({
+            name,
+            userId
+        });
+
+        return res.json({
+            collection: newCollection,
+        });
+    }),
+);
+
+// delete collection
+router.delete(
+    '/',
+    requireAuth,
+    asyncHandler(async (req, res) => {
+        const collectionId = parseInt(req.params.id, 10);
+
+        const collection = await Collection.findByPk(collectionId);
+
+        await collection.destroy();
+
+        res.json('Collection deleted.');
+    })
+)
+
 module.exports = router;

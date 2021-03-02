@@ -11,9 +11,9 @@ function CollectionDropdown() {
     const collections = useSelector((state) => state.collection.collections);
     const [collectionId, setCollectionId] = useState(0);
 
-    if (collections.length !== 1 && collectionId) {
-        setCollectionId(collections[0].id);
-    }
+    // if (collections.length !== 1 && collectionId) {
+    //     setCollectionId(collections.id);
+    // }
 
     const handleSubmit = (e) => {
         e.preventDefault();

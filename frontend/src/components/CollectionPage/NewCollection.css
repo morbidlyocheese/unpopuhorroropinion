@@ -1,0 +1,39 @@
+.new-collection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    background-color: #808080;
+    font-family: 'Big Shoulders Display', cursive;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.new-collection-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-collection-input {
+    background-color: white;
+    font-family: 'Big Shoulders Display', cursive;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.new-collection-input:hover {
+    background-color: white;
+    color: black;
+}
+
+.new-collection-button {
+    width: 60px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: 'Big Shoulders Display', cursive;
+    margin: 5px;
+}

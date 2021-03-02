@@ -14,9 +14,9 @@ function AddMovie() {
 
     const [responseHeader, setResponseHeader] = useState('');
 
-    if (collections.length !== 1 && collectionId) {
-        setCollectionId(collections[0].id);
-    }
+    // if (collections.length !== 1 && collectionId) {
+    //     setCollectionId(collections[0].id);
+    // }
     
     const handleSubmit = (e) => {
         e.preventDefault();

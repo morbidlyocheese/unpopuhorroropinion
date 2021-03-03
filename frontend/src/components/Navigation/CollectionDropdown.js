@@ -8,12 +8,9 @@ import './Navigation.css';
 function CollectionDropdown() {
     const dispatch = useDispatch();
     const history = useHistory();
+    const userId = useSelector((state) => state.session.user.id);
     const collections = useSelector((state) => state.collection.collections);
     const [collectionId, setCollectionId] = useState(0);
-
-    // if (collections.length !== 1 && collectionId) {
-    //     setCollectionId(collections.id);
-    // }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,9 +27,7 @@ function CollectionDropdown() {
             <select className='collection-dropdown collection-select' onChange={onChange} value={collectionId}>
                 <option className='collection-dropdown collection-option' value='0' disabled={collectionId !== 0}>View Collection</option>
                 {collections && collections.map((collection) => (
-                    <>
-                        <option value={collection.id} key={collection.id}>{collection.name}</option>
-                    </>
+                    (collection.userId === userId) ? <option value={collection.id} key={collection.id}>{collection.name}</option> : <></>
                 ))}
             </select>
             <button className='collection-dropdown collection-button' type='submit'>Go</button>

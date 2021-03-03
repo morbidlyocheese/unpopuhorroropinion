@@ -14,7 +14,6 @@ import { getAllCollections } from './store/collection';
 import './index.css'
 import SearchPage from "./components/Search/SearchPage";
 import SplashPage from "./components/SplashPage/Splash";
-import NewCollectionPage from './components/CollectionPage/NewCollection';
 
 function App() {
   const dispatch = useDispatch();

@@ -24,14 +24,16 @@ router.get(
     '/:id(\\d+)',
     requireAuth,
     asyncHandler(async (req, res) => {
-        const userId = req.user.id;
+        const userId = req.user.id;        
         const collectionId = parseInt(req.params.id, 10);
+        const collections = await Collection.findByPk(collectionId, {
+            where: {
+                userId: userId
+            }
+        });
+        const collectionUser = collections.dataValues.userId;
         
-        const collectionOne = await Collection.findByPk(collectionId);
-
-        // const collection = await collectionOne.json();
-        
-        const movies = collectionOne.movieId;
+        const movies = collections.dataValues.movieId;
         const movieIds = [];
 
         for (let i = 0; i <= movies.length; i++) {
@@ -42,9 +44,9 @@ router.get(
             movieIds.push(data);
         }
 
-        // return res.status(200).send(data);
-
-        return { response: res.json({ collectionOne, movie: movieIds })};
+        if (userId === collectionUser) {
+            return { response: res.json({ collections, collectionUser, movie: movieIds })};
+        }
     })
 );
     
@@ -60,6 +62,7 @@ router.post(
                 userId: userId
             }
         });
+        const collectionUser = collections.dataValues.userId;
 
         try {
             let { movie } = req.body;
@@ -109,8 +112,6 @@ router.delete(
                 userId: userId
             }
         });
-
-        console.log(collectionId)
 
         await collections.destroy();
 

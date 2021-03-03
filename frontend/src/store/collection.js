@@ -45,9 +45,9 @@ function removeCollection(collection) {
 }
 
 // get single collection
-export const getCollection = (collectionId) => async (dispatch) => {
+export const getCollection = (collectionId, collectionUser) => async (dispatch) => {
     const res = await fetch(`/api/collections/${collectionId}`);
-    dispatch(collection(res.data.collectionOne.id));
+    dispatch(collection(res.data.collections, collectionUser));
     dispatch(movies(res.data.movie));
     return res;
 }

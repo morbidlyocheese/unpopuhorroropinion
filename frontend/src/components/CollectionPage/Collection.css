@@ -87,3 +87,48 @@
   padding: 20px;
   border-radius: 5px;
 }
+
+.new-delete-collection-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-collection-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+}
+
+.delete-collection-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 5px;
+  background-color: #808080;
+  font-family: 'Big Shoulders Display', cursive;
+  padding: 10px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+.delete-collection-dropdown {
+  display: flex;
+  /* justify-content: flex-start; */
+  background-color: white;
+  height: 40px;
+  /* width: auto; */
+  border-radius: 5px;
+  font-family: 'Big Shoulders Display', cursive;
+  padding: 10px;
+}
+
+.delete-button {
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+  font-family: 'Big Shoulders Display', cursive;
+  margin: 5px;
+} 

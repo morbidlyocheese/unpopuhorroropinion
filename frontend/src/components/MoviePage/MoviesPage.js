@@ -9,8 +9,6 @@ function MoviesList() {
     const dispatch = useDispatch();
     const movies = useSelector((state) => state.movies);
 
-    console.log('movies --->', movies)
-
     useEffect(() => {
         dispatch(movieActions.movieList())
     }, [dispatch]);

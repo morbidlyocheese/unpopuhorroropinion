@@ -17,13 +17,14 @@ function getMovie(movie) {
     }
 }
 
+// discover page
 export const movieList = () => async(dispatch) => {
     const res = await fetch('/api/movies/discover');
-    console.log(res.data)
     dispatch(getMovies(res.data));
     return res;
 }
 
+// single movie page
 export const movieDetails = (id) => async(dispatch) => {
     const res = await fetch("/api/movies/details/"+id);
     dispatch(getMovie(res.data));

@@ -37,3 +37,40 @@
     font-family: 'Big Shoulders Display', cursive;
     margin: 5px;
 }
+
+.delete-collection-form {
+    display: flex;
+    max-width: 150px;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.delete-collection-dropdown {
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+    height: 40px;
+    width: auto;
+    border-radius: 5px;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.delete-collection-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    height: 40px;
+    width: 60px;
+    background-color: white;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.delete-button {
+    width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: 'Big Shoulders Display', cursive;
+    margin: 5px;
+}

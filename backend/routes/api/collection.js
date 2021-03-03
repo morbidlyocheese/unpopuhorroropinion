@@ -102,11 +102,17 @@ router.delete(
     '/',
     requireAuth,
     asyncHandler(async (req, res) => {
+        const userId = req.user.id;
         const collectionId = parseInt(req.params.id, 10);
+        const collections = await Collection.findByPk(req.body.collectionId, {
+            where: {
+                userId: userId
+            }
+        });
 
-        const collection = await Collection.findByPk(collectionId);
+        console.log(collectionId)
 
-        await collection.destroy();
+        await collections.destroy();
 
         res.json('Collection deleted.');
     })

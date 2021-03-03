@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
 import './Collection.css';
@@ -9,36 +9,50 @@ import NewCollectionPage from './NewCollection';
 
 function Collection() {
     const dispatch = useDispatch();
-    const collectionId = useParams();
+    const history = useHistory();
 
     const user = useSelector((state) => state.session.user)
-    const coll = useSelector((state) => state.collection.collections);
+    const collId = useSelector((state) => state.collection.collection);
     const collection = useSelector((state) => state.collection.movies);
     const userId = useSelector((state) => state.session.user.id);
-    const sessionUser = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state.session.user);  
+    const collections = useSelector((state) => state.collection.collections);
+    const [collectionId, setCollectionId] = useState(0);
 
-    useEffect(() => {
-        dispatch(collectionActions.deleteCollection(collectionId))
-    }, [dispatch, collectionId]);
+    console.log('collection ->', collections);
+    console.log('coll id & userId ->', collectionId, userId);
 
-    const [redirect, setRedirect] = useState(false);
+    const onChange = (e) => {
+        setCollectionId(parseInt(e.target.value));
+    }
 
     const handleCollectionDelete = (e) => {
         e.preventDefault();
-
-        if (collection.userId === sessionUser.id || sessionUser.username === 'admin') {
+        
+        if (collectionId.userId === sessionUser.id || sessionUser.username === 'admin') {
             dispatch(collectionActions.deleteCollection(collectionId, userId));
-            setRedirect(true);
+            history.push(`/collections/`)
         } else {
             alert("You cannot delete things that aren't yours!");
         }
     }
 
+
     return (
         <div>
             <div className='collection-outer-container'>
                 <NewCollectionPage/>
-                <button className='delete-button' onClick={handleCollectionDelete}>Delete</button>
+                <form className='delete-collection-form' onSubmit={handleCollectionDelete}>
+                    <select className='delete-collection-dropdown delete-collection-select' onChange={onChange} value={collectionId}>
+                        <option className='delete-collection-dropdown delete-collection-option' value='0' disabled={collectionId !== 0}>Select To Delete</option>
+                        {collections && collections.map((collection) => (
+                            <>
+                                <option value={collection.id} key={collection.id}>{collection.name}</option>
+                            </>
+                        ))}
+                    </select>
+                    <button className='delete-button' type='submit'>Delete Collection</button>
+                </form>
                 <div className='collection-inner-container'>
                     {collection && collection.map((movie, i) => (
                         (movie.success === undefined) ? <div className='collection-case'><div className='collection-sleeve'><p className='collection-text'>{movie.title}</p></div></div> : <></>

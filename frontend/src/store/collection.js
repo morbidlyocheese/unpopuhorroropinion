@@ -119,8 +119,7 @@ const collectionReducer = (state = { collection: [], collections: [] }, action) 
         case CREATE_COLLECTION:
             return {...state, collection: action.payload};
         case REMOVE_COLLECTION:
-            newState = {...state};
-            newState.collection.push(action.payload);
+            newState = state.filter(collection => collection === action.payload)
             return newState;
         default:
             return state;

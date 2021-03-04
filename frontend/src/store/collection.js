@@ -5,6 +5,7 @@ const GET_ALL_COLLECTIONS = 'movie/collections';
 
 const ADD_TO_COLLECTION = 'movie/add';
 const GET_MOVIES = 'movies/collection';
+const DEL_MOVIE = 'movie/delete';
 
 const CREATE_COLLECTION = 'collection/createCollection';
 const REMOVE_COLLECTION = 'collection/removeCollection';
@@ -27,6 +28,13 @@ function movies(movies) {
     return {
         type: GET_MOVIES,
         payload: movies
+    }
+}
+
+function delMovie(movie) {
+    return {
+        type: DEL_MOVIE,
+        payload: movie
     }
 }
 
@@ -71,6 +79,26 @@ export const addToCollection = (movieId, collectionId, userId) => async (dispatc
     });
 
     if (res.data.success) {
+        return 'Success!';
+    } else {
+        return res.data.reason;
+    }
+}
+
+// delete movie from collection
+export const delFromCollection = (movieId, movieIds, collectionId, userId) => async (dispatch) => {
+    const res = await fetch(`/api/collections/${collectionId}?movie=${movieId}`, {
+        method: 'DELETE',
+        body: JSON.stringify({
+            collection: movieIds,
+            currentCollectionId: collectionId,
+            movId: movieId,
+            userId: userId,
+        }),
+    });
+
+    if (res.data.success) {
+        dispatch(delMovie(res));
         return 'Success!';
     } else {
         return res.data.reason;
@@ -122,6 +150,10 @@ const collectionReducer = (state = { collection: [], collections: [] }, action) 
             newState = Object.assign({}, state);
             newState.collection = null;
             return newState;
+        case DEL_MOVIE:
+            newState = Object.assign({}, state);
+            newState.collection = null;
+            return newState;        
         default:
             return state;
     }

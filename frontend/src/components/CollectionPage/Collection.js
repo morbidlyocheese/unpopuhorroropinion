@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import './Collection.css';
 import * as collectionActions from '../../store/collection';
@@ -9,6 +10,8 @@ import NewCollectionPage from './NewCollection';
 function Collection() {
     const dispatch = useDispatch();
     const history = useHistory();
+    let currentCollectionId = useParams();
+    currentCollectionId = currentCollectionId.id;
 
     const userId = useSelector((state) => state.session.user.id);
     const collection = useSelector((state) => state.collection.movies);
@@ -25,8 +28,9 @@ function Collection() {
     // maps through collections to set the collection user
     collections.map((collection) => {
         if (collection.userId === userId) {
-            return collectionUser = collection.userId;
+            collectionUser = collection.userId;
         }
+        return collectionUser;
     })
 
     const handleCollectionDelete = (e) => {
@@ -36,6 +40,15 @@ function Collection() {
         // or if the user is an admin
         if (collectionUser === userId || sessionUser.username === 'admin') {
             dispatch(collectionActions.deleteCollection(collectionId, userId));
+            history.push(`/movies/discover`)
+        } else {
+            alert("You cannot delete things that aren't yours!");
+        }
+    }
+    
+    const handleMovieDelete = (e) => {
+        if (collectionUser === userId || sessionUser.username === 'admin') {
+            dispatch(collectionActions.delFromCollection(collectionId, userId));
             history.push(`/movies/discover`)
         } else {
             alert("You cannot delete things that aren't yours!");
@@ -70,7 +83,15 @@ function Collection() {
                 <ul className='collection-list-items'>
                     <p className='movie-titles'>Collection Titles:</p>
                     {collection && collection.map((movie, i) => (
-                        (movie.success === undefined) ? <li className='collection-list-item'>{movie.title}</li> : <></>
+                        (movie.success === undefined) ? <><li className='collection-list-item'>{movie.title}<button className='delete-movie-button' type='submit' onClick={() => {
+                            if (collectionUser === userId || sessionUser.username === 'admin') {
+                                const movId = movie.id;
+                                dispatch(collectionActions.delFromCollection(movId, collection, currentCollectionId, userId));
+                                history.push(`/collections/${currentCollectionId}`)
+                            } else {
+                                alert("You cannot delete things that aren't yours!");
+                            }
+                        }}>x</button></li></> : <></>
                     ))}
                 </ul>
             </div>

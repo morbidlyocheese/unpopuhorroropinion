@@ -82,6 +82,37 @@ router.post(
     }
 ));
 
+// delete movie from collection
+router.delete(
+    '/:id(\\d+)',
+    requireAuth,
+    asyncHandler(async (req, res) => {
+        const userId = req.user.id;
+        const collectionId = parseInt(req.params.id, 10);
+        const collections = await Collection.findByPk(collectionId, {
+            where: {
+                userId: userId
+            }
+        });
+        const collectionUser = collections.dataValues.userId;
+
+        const movieId = collections.dataValues.movieId;
+
+        try {
+            let { movId } = req.body;
+
+            const movie = movieId.indexOf(movId);
+            if (movie > -1) {
+                movieId.splice(movie, 1);
+                await collections.update({ movieId: [...collections.movieId] });
+            }
+            res.json({ success: true });
+        } catch(e) {
+            res.json({ success: false, reason: 'Something went wrong, please try again!' });
+        }
+    }
+));
+
 // new collection
 router.post(
     '/',

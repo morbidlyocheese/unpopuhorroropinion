@@ -69,6 +69,9 @@
 }
 
 .collection-list-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   list-style-type: disc;
   padding: 2px;
 }
@@ -77,6 +80,7 @@
   font-weight: bold;
   font-size: larger;
   font-family: 'Big Shoulders Display', cursive;
+  text-decoration: underline;
 }
 
 .collection-list-container {
@@ -115,10 +119,8 @@
 
 .delete-collection-dropdown {
   display: flex;
-  /* justify-content: flex-start; */
   background-color: white;
   height: 40px;
-  /* width: auto; */
   border-radius: 5px;
   font-family: 'Big Shoulders Display', cursive;
   padding: 10px;
@@ -132,3 +134,20 @@
   font-family: 'Big Shoulders Display', cursive;
   margin: 5px;
 } 
+
+.delete-movie-button {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  margin-left: 4px;
+  border-radius: 5px;
+  font-family: 'Big Shoulders Display', cursive;
+}
+
+.delete-movie-button:hover {
+  background-color: red;
+}
+
+.collection-list-item:hover {
+  color: red;
+}

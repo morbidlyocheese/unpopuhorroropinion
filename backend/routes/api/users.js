@@ -4,7 +4,8 @@ const asyncHandler = require('express-async-handler');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Collection } = require('../../db/models');
+const { db } = require('../../config');
 
 const router = express.Router();
 
@@ -40,5 +41,24 @@ router.post(
         });
     })
 );
+
+// lookup collections of a user
+router.get(
+    '/:id(\\d+)/profile', 
+    requireAuth,
+    asyncHandler(async (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+
+    const collections = await Collection.findAll({
+        where: {
+            userId,
+        },
+        order: [['id']]
+    });
+
+    const user = await User.findByPk(userId);
+
+    return res.json({ collections });
+}))
 
 module.exports = router;

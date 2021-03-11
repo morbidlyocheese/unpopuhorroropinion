@@ -16,6 +16,7 @@ router.get('/restore-user', restoreUser, (req, res) => {
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
+router.use('/users/:id/profile', usersRouter);
 
 // movie specific routes
 router.use('/movies/discover', MovieController.discover);

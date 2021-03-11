@@ -152,13 +152,15 @@ a:hover .title-bottom{
 
 .profile-dropdown {
     font-family: 'Big Shoulders Display', cursive;
-    display: block;
+    display: flex;
     top: 40px;
     right: 5px;
     position: absolute;
     color: white;
     max-width: 280px;
+    flex-direction: column;
     word-wrap: break-word;
+    justify-content: center;
     background-color: #80808079;
     align-items: center;
     border-radius: 5px;

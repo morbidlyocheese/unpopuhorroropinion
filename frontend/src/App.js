@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import MoviesList from './components/MoviePage/MoviesPage';
 import MoviePage from './components/MoviePage/MoviePage';
 import Collection from './components/CollectionPage/Collection';
+import ProfilePage from './components/ProfilePage/ProfilePage.js';
 
 import { getAllCollections } from './store/collection';
 
@@ -50,6 +51,9 @@ function App() {
             </Route>
             <Route path='/collections/:id'>
               {sessionUser ? <Collection/> : <Redirect to='/'/>}
+            </Route>
+            <Route path='/users/:id/profile'>
+              {sessionUser ? <ProfilePage/> : <Redirect to='/'/>}
             </Route>
           </div>
         </>

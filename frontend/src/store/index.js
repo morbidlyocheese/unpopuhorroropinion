@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
     session: sessionReducer,
     movies: movieReducer,
     search: searchReducer,
-    collection: collectionReducer
+    collection: collectionReducer,
 });
 
 let enhancer;

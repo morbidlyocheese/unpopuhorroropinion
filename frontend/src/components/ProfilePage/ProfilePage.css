@@ -1,0 +1,32 @@
+.profile-page-container {
+    display: flex;
+    margin-top: 70px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile-collection-name {
+    color: white;
+    font-size: larger;
+    padding: 10px;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.collections {
+    display: flex;
+    font-size: larger;
+    color: white;
+    font-weight: 700;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.profile-inner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: #80808091;
+    border-radius: 5px;
+    padding: 20px;
+}

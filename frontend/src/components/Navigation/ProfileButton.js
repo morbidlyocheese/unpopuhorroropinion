@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import About from '../AboutModal/About';
 
@@ -9,6 +9,7 @@ import './Navigation.css';
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
+    const userId = useSelector((state) => state.session.user.id);
 
     const openMenu = () => {
         if (showMenu) return;
@@ -43,9 +44,8 @@ function ProfileButton({ user }) {
                     <>
                         <ul className="profile-dropdown">
                             <li>{user.email}</li>
-                            <li>
-                                <button className='logout' onClick={logout}>Logout</button>
-                            </li>
+                            <a href={`/users/${userId}/profile`}>PROFILE</a>
+                            <button className='logout' onClick={logout}>Logout</button>
                         </ul>
                     </>
                 )}

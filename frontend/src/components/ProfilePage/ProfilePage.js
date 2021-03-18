@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -19,9 +19,14 @@ function ProfilePage() {
     const userId = useSelector((state) => state.session.user.id);
     const sessionUser = useSelector(state => state.session.user);
     const collections = useSelector((state) => state.collection.collections);
+
+    const userCollections = useSelector((state) => state.collection.userCollections);
+    const collectionsUser = useSelector((state) => state.collection.user);
     const [collectionId, setCollectionId] = useState(0);
 
     let collectionUser;
+
+    console.log('state ->', userCollections)
 
     const onChange = (e) => {
         setCollectionId(parseInt(e.target.value));
@@ -47,6 +52,10 @@ function ProfilePage() {
             alert("You cannot delete things that aren't yours!");
         }
     }
+
+    useEffect(() => {
+        dispatch(collectionActions.getUserCollections(userId))
+    }, [dispatch, userId]);
     
     return (
         <div className='profile-page-container'>
@@ -65,8 +74,8 @@ function ProfilePage() {
                 </div>
             </div>
             <div className='profile-inner-container'>
-                <h1 className='collections'>Collections: </h1>
-                {collections && collections.map((collection) => (
+                <h1 className='collections'>{collectionsUser.username}'s Collections: </h1>
+                {userCollections && userCollections.map((collection) => (
                     (collection.userId === currentUserId) ? <div className='profile-collection-name'>{collection.name}</div> : <></>
                 ))}
             </div>

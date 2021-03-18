@@ -47,18 +47,18 @@ router.get(
     '/:id(\\d+)/profile', 
     requireAuth,
     asyncHandler(async (req, res) => {
-    const userId = parseInt(req.params.id, 10);
+    const userId = parseInt(req.params.id);
 
-    const collections = await Collection.findAll({
+    const userCollections = await Collection.findAll({
         where: {
-            userId,
+            userId: userId,
         },
         order: [['id']]
     });
 
-    const user = await User.findByPk(userId);
+    const profile = await User.findByPk(userId);
 
-    return res.json({ collections });
+    return res.json({ userCollections, profile: profile });
 }))
 
 module.exports = router;

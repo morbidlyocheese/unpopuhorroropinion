@@ -10,6 +10,9 @@ const DEL_MOVIE = 'movie/delete';
 const CREATE_COLLECTION = 'collection/createCollection';
 const REMOVE_COLLECTION = 'collection/removeCollection';
 
+const COLLECTION_USER = 'collection/user';
+const USER_COLLECTIONS = 'collections/user';
+
 function collection(collection) {
     return {
         type: GET_COLLECTION,
@@ -17,10 +20,24 @@ function collection(collection) {
     }
 }
 
+function getCollectionUser(user) {
+    return {
+        type: COLLECTION_USER,
+        payload: user
+    }
+}
+
 function collections(collections) {
     return {
         type: GET_ALL_COLLECTIONS,
         payload: collections
+    }
+}
+
+function userCollections(userCollections) {
+    return {
+        type: USER_COLLECTIONS,
+        payload: userCollections
     }
 }
 
@@ -56,9 +73,21 @@ function removeCollection(collection) {
 export const getCollection = (collectionId, collectionUser) => async (dispatch) => {
     const res = await fetch(`/api/collections/${collectionId}`);
     dispatch(collection(res.data.collections, collectionUser));
+    console.log('res ->', res.data)
+    dispatch(getCollectionUser(res.data.profile));
     dispatch(movies(res.data.movie));
     return res;
 }
+
+//  get users collections
+export const getUserCollections = (id) => async (dispatch) => {
+    const res = await fetch(`/api/users/${id}/profile`);
+    dispatch(userCollections(res.data.userCollections));
+    console.log('res ->', res.data)
+    dispatch(getCollectionUser(res.data.profile));
+    return res;
+}
+
 
 // get all collections
 export const getAllCollections = () => async (dispatch) => {
@@ -131,11 +160,15 @@ export const deleteCollection = (collectionId, userId) => async (dispatch) => {
     return res;
 }
 
-const collectionReducer = (state = { collection: [], collections: [] }, action) => {
+const collectionReducer = (state = { collection: [], collections: [], userCollections: [], user: {} }, action) => {
     let newState;
     switch (action.type) {
         case GET_COLLECTION:
             return {...state, collection: action.payload};
+        case USER_COLLECTIONS:
+            return {...state, userCollections: action.payload};
+        case COLLECTION_USER:
+            return {...state, user: action.payload};
         case ADD_TO_COLLECTION:
             newState = {...state};
             newState.collection.push(action.payload);

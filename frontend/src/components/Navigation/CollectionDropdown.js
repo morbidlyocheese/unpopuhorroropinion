@@ -12,10 +12,12 @@ function CollectionDropdown() {
     const collections = useSelector((state) => state.collection.collections);
     const [collectionId, setCollectionId] = useState(0);
 
+    console.log('user --> ',typeof userId)
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(collectionActions.getCollection(collectionId))
-        history.push(`/collections/${collectionId}`)
+        history.push(`/users/${userId}/collections/${collectionId}`)
     }
     
     const onChange = (e) => {

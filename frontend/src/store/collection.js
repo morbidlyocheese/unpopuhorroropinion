@@ -70,10 +70,10 @@ function removeCollection(collection) {
 }
 
 // get single collection
-export const getCollection = (collectionId, collectionUser) => async (dispatch) => {
-    const res = await fetch(`/api/collections/${collectionId}`);
+export const getCollection = (collectionId, collectionUser, user) => async (dispatch) => {
+    const res = await fetch(`/api/users/${user}/collections/${collectionId}`);
     dispatch(collection(res.data.collections, collectionUser));
-    console.log('res ->', res.data)
+    console.log('res ->', res.data.user)
     dispatch(getCollectionUser(res.data.profile));
     dispatch(movies(res.data.movie));
     return res;

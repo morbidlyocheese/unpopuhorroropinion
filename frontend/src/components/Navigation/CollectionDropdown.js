@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -12,14 +12,18 @@ function CollectionDropdown() {
     const collections = useSelector((state) => state.collection.collections);
     const [collectionId, setCollectionId] = useState(0);
 
-    console.log('user --> ',typeof userId)
+    console.log('user --> ', userId)
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(collectionActions.getCollection(collectionId))
+        dispatch(collectionActions.getCollection(userId, collectionId))
         history.push(`/users/${userId}/collections/${collectionId}`)
     }
     
+    useEffect(() => {
+
+    })
+
     const onChange = (e) => {
         setCollectionId(parseInt(e.target.value));
     }

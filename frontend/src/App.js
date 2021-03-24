@@ -49,7 +49,7 @@ function App() {
             <Route path='/movies/details/:id'>
               {sessionUser ? <MoviePage/> : <Redirect to='/'/>}
             </Route>
-            <Route path='/collections/:id'>
+            <Route path='/users/:id/collections/:id'>
               {sessionUser ? <Collection/> : <Redirect to='/'/>}
             </Route>
             <Route path='/users/:id/profile'>

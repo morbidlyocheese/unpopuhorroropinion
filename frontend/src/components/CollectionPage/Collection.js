@@ -12,11 +12,14 @@ function Collection() {
     currentCollectionId = currentCollectionId.id;
 
     const userId = useSelector((state) => state.session.user.id);
-    const collection = useSelector((state) => state.collection.movies);
+    const collection = useSelector((state) => state);
+    // const collection = useSelector((state) => state.collection.movies);
     const sessionUser = useSelector(state => state.session.user);  
     const collections = useSelector((state) => state.collection.collections);
 
     let collectionUser;
+
+    console.log('collections ->', collection);
 
     // maps through collections to set the collection user
     collections.map((collection) => {
@@ -28,7 +31,7 @@ function Collection() {
 
     return (
         <div>
-            <div className='collection-outer-container'>
+            {/* <div className='collection-outer-container'>
                 <div className='collection-inner-container'>
                     {collection && collection.map((movie, i) => (
                         (movie.success === undefined) ? <div className='collection-case'><div className='collection-sleeve'><p className='collection-text'>{movie.title}</p></div></div> : <></>
@@ -51,7 +54,7 @@ function Collection() {
                         }}>x</button></li></> : <></>
                     ))}
                 </ul>
-            </div>
+            </div> */}
         </div>
     )
 }

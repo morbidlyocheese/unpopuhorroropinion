@@ -70,12 +70,12 @@ function removeCollection(collection) {
 }
 
 // get single collection
-export const getCollection = (collectionId, collectionUser, user) => async (dispatch) => {
+export const getCollection = (collectionId, user, collectionUser) => async (dispatch) => {
     const res = await fetch(`/api/users/${user}/collections/${collectionId}`);
     dispatch(collection(res.data.collections, collectionUser));
-    console.log('res ->', res.data.user)
+    console.log('res ->', res.data)
     dispatch(getCollectionUser(res.data.profile));
-    dispatch(movies(res.data.movie));
+    dispatch(movies(res.data.movieIds));
     return res;
 }
 
@@ -160,7 +160,7 @@ export const deleteCollection = (collectionId, userId) => async (dispatch) => {
     return res;
 }
 
-const collectionReducer = (state = { collection: [], collections: [], userCollections: [], user: {} }, action) => {
+const collectionReducer = (state = { collection: [], collections: [], userCollections: [], user: {}, movieIds: [] }, action) => {
     let newState;
     switch (action.type) {
         case GET_COLLECTION:

@@ -45,10 +45,11 @@ router.get(
             movieIds.push(data);
         }
 
-        console.log('user -->', userId)
+        console.log('movies -->', movies)
 
         if (userId === collectionUser) {
-            return { response: res.json({ collections, user, collectionUser, movie: movieIds })};
+            return { response: res.json({ collections, user, collectionUser, movieIds })};
+            // return { response: res.json({ collections, user, collectionUser, movieIds })};
         }
     })
 );

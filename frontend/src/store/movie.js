@@ -1,7 +1,7 @@
 import { fetch } from './csrf';
 
 const GET_MOVIES = 'movie/getMovies';
-const GET_MOVIE = '/movie/getMovie';
+const GET_MOVIE = 'movie/getMovie';
 
 function getMovies(movies) {
     return {

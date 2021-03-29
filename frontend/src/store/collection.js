@@ -70,11 +70,11 @@ function removeCollection(collection) {
 }
 
 // get single collection
-export const getCollection = (collectionId, user, collectionUser) => async (dispatch) => {
-    const res = await fetch(`/api/users/${user}/collections/${collectionId}`);
-    dispatch(collection(res.data.collections, collectionUser));
-    console.log('res ->', res.data)
-    dispatch(getCollectionUser(res.data.profile));
+export const getCollection = (collectionId, userId, collectionUser) => async (dispatch) => {
+    const res = await fetch(`/api/users/${userId}/collections/${collectionId}`);
+    console.log('res ->', res)
+    dispatch(collection(res.data.userCollection, collectionUser));
+    dispatch(getCollectionUser(res.data.userId));
     dispatch(movies(res.data.movieIds));
     return res;
 }
@@ -83,7 +83,6 @@ export const getCollection = (collectionId, user, collectionUser) => async (disp
 export const getUserCollections = (id) => async (dispatch) => {
     const res = await fetch(`/api/users/${id}/profile`);
     dispatch(userCollections(res.data.userCollections));
-    console.log('res ->', res.data)
     dispatch(getCollectionUser(res.data.profile));
     return res;
 }
@@ -160,11 +159,11 @@ export const deleteCollection = (collectionId, userId) => async (dispatch) => {
     return res;
 }
 
-const collectionReducer = (state = { collection: [], collections: [], userCollections: [], user: {}, movieIds: [] }, action) => {
+const collectionReducer = (state = { userCollection: {}, collections: [], userCollections: [], user: {}, movieIds: [] }, action) => {
     let newState;
     switch (action.type) {
         case GET_COLLECTION:
-            return {...state, collection: action.payload};
+            return {...state, userCollection: action.payload};
         case USER_COLLECTIONS:
             return {...state, userCollections: action.payload};
         case COLLECTION_USER:

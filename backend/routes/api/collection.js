@@ -20,21 +20,61 @@ router.get(
 );
 
 // get collection by collectionId
+// router.get(
+//     '/users/:id(\\d+)/collections/:id(\\d+)',
+//     requireAuth,
+//     asyncHandler(async (req, res) => {
+//         // const userId = req.user.id;        
+//         const user = parseInt(req.params.id, 10);
+//         const collectionId = parseInt(req.params.id, 10);
+//         const collections = await Collection.findAll({
+//             where: {
+//                 user: userId
+//             }
+//         });
+//         const collectionUser = collections.dataValues.userId;
+        
+//         const movies = collections.dataValues.movieId;
+//         const movieIds = [];
+
+//         for (let i = 0; i <= movies.length; i++) {
+//             const movie = movies[i];
+//             const url = `${apiUrl}/movie/${movie}?api_key=${apiKey}&language=en-US`;
+//             let response = await fetch(url);
+//             let data = await response.json();
+//             movieIds.push(data);
+//         }
+
+//         console.log('movies -->', movies)
+
+//         if (userId === collectionUser) {
+//             // return res.json({ collections: collections, user, collectionUser, movieIds });
+//             return { response: res.json({ collections: collections, user, collectionUser, movieIds })};
+//             // return { response: res.json({ collections, user, collectionUser, movieIds })};
+//         }
+//     })
+// );
+
 router.get(
     '/users/:id(\\d+)/collections/:id(\\d+)',
     requireAuth,
     asyncHandler(async (req, res) => {
-        const userId = req.user.id;        
-        const user = parseInt(req.params.id, 10);
+        const userId = parseInt(req.params.id);
         const collectionId = parseInt(req.params.id, 10);
-        const collections = await Collection.findByPk(collectionId, {
+
+        const userCollection = await Collection.findByPk(collectionId, {
             where: {
-                userId: userId
-            }
+                userId: userId,
+            },
+            order: [['id']]
         });
-        const collectionUser = collections.dataValues.userId;
-        
-        const movies = collections.dataValues.movieId;
+
+        // const profile = await User.findByPk(userId);
+
+        // return res.json({ userCollections, profile: profile });
+        const collectionUser = userCollection.dataValues.userId;
+
+        const movies = userCollection.dataValues.movieId;
         const movieIds = [];
 
         for (let i = 0; i <= movies.length; i++) {
@@ -45,14 +85,14 @@ router.get(
             movieIds.push(data);
         }
 
-        console.log('movies -->', movies)
+        // console.log('movies -->', movies)
 
-        if (userId === collectionUser) {
-            return { response: res.json({ collections, user, collectionUser, movieIds })};
+        // if (userId === collectionUser) {
+        return res.json({ userCollection: userCollection, userId, collectionUser, movieIds });
+            // return { response: res.json({ userCollection, user, collectionUser, movieIds }) };
             // return { response: res.json({ collections, user, collectionUser, movieIds })};
-        }
-    })
-);
+        // }
+    }));
 // router.get(
 //     '/:id(\\d+)',
 //     requireAuth,

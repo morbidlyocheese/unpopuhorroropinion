@@ -25,7 +25,7 @@ router.use('/movies/details/:id', MovieController.details);
 
 // collection routes
 router.use('/collections', collectionRouter);
-router.use('/users/:id/collections/:id', collectionRouter);
+router.use('/users/:userId/collections/:collectionId', collectionRouter);
 
 // about route
 router.use('/about', aboutRouter);

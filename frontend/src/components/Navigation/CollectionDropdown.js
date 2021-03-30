@@ -15,6 +15,7 @@ function CollectionDropdown() {
     console.log('user --> ', userId)
 
     const handleSubmit = (e) => {
+        debugger;
         e.preventDefault();
         dispatch(collectionActions.getCollection(userId, collectionId))
         history.push(`/users/${userId}/collections/${collectionId}`)

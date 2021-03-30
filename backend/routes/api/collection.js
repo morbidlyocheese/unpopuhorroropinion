@@ -56,7 +56,7 @@ router.get(
 // );
 
 router.get(
-    '/users/:id(\\d+)/collections/:id(\\d+)',
+    '/users/:userId(\\d+)/collections/:collectionId(\\d+)',
     requireAuth,
     asyncHandler(async (req, res) => {
         const userId = parseInt(req.params.id);

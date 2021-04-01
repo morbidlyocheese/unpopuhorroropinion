@@ -10,8 +10,6 @@ import MoviePage from './components/MoviePage/MoviePage';
 import Collection from './components/CollectionPage/Collection';
 import ProfilePage from './components/ProfilePage/ProfilePage.js';
 
-import { getAllCollections } from './store/collection';
-
 import './index.css'
 import SearchPage from "./components/Search/SearchPage";
 import SplashPage from "./components/SplashPage/Splash";
@@ -24,7 +22,7 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
-  dispatch(getAllCollections());
+  // dispatch(getAllCollections());
 
   return (
     <>

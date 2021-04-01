@@ -21,7 +21,7 @@ function AddMovie() {
         dispatch(collectionActions.addToCollection(id, collectionId, user.id))
             .then(response => {
                 setResponseHeader(response);
-                dispatch(collectionActions.getAllCollections());
+                dispatch(collectionActions.getUserCollections());
             });
     }
     

@@ -10,14 +10,14 @@ apiKey = process.env.API_KEY;
 apiUrl = process.env.API_URL;
 
 // get movie collections
-router.get(
-    '/',
-    asyncHandler(async (req, res) => {
-        const collectionList = await Collection.findAll();
+// router.get(
+//     '/',
+//     asyncHandler(async (req, res) => {
+//         const collectionList = await Collection.findAll();
 
-        return res.json({ collections: collectionList });
-    }),
-);
+//         return res.json({ collections: collectionList });
+//     }),
+// );
 
 // get collection by collectionId
 // router.get(

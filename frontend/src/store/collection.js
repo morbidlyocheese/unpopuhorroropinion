@@ -70,9 +70,9 @@ function removeCollection(collection) {
 }
 
 // get single collection
-export const getCollection = (collectionId, userId, collectionUser) => async (dispatch) => {
+export const getCollection = (userId, collectionId, collectionUser) => async (dispatch) => {
     const res = await fetch(`/api/users/${userId}/collections/${collectionId}`);
-    console.log('res ->', res)
+    console.log('res ->', res.data)
     dispatch(collection(res.data.userCollection, collectionUser));
     dispatch(getCollectionUser(res.data.userId));
     dispatch(movies(res.data.movieIds));
@@ -84,16 +84,17 @@ export const getUserCollections = (id) => async (dispatch) => {
     const res = await fetch(`/api/users/${id}/profile`);
     dispatch(userCollections(res.data.userCollections));
     dispatch(getCollectionUser(res.data.profile));
+    console.log('res ->', res.data)
     return res;
 }
 
 
 // get all collections
-export const getAllCollections = () => async (dispatch) => {
-    const res = await fetch(`/api/collections`);
-    dispatch(collections(res.data.collections));
-    return res;
-}
+// export const getAllCollections = () => async (dispatch) => {
+//     const res = await fetch(`/api/collections`);
+//     dispatch(collections(res.data.collections));
+//     return res;
+// }
 
 // add movie to collection
 export const addToCollection = (movieId, collectionId, userId) => async (dispatch) => {

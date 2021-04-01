@@ -24,6 +24,7 @@
 		"express-validator": "^6.9.2",
 		"faker": "^5.2.0",
 		"helmet": "^4.4.1",
+		"is-svg": "^4.2.2",
 		"jsonwebtoken": "^8.5.1",
 		"morgan": "^1.10.0",
 		"node-fetch": "^2.6.1",

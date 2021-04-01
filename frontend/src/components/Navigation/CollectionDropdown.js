@@ -12,7 +12,6 @@ function CollectionDropdown() {
     // const collections = useSelector((state) => state.collection.collections);
     const [collectionId, setCollectionId] = useState(0);
 
-
     const collections = useSelector((state) => state.collection.userCollections);
 
     const handleSubmit = (e) => {

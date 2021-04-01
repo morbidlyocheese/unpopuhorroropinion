@@ -14,21 +14,24 @@ function Collection() {
     currentCollectionId = parseInt(currentCollectionId);
 
     // const userId = useSelector((state) => state.session.user.id);
+    let userId = useParams();
+    userId = parseInt(userId.id);
+
     const user = useSelector((state) => state.collection.userId);
     // const collection = useSelector((state) => state);
     // const collection = useSelector((state) => state.collection.movies);
     const sessionUser = useSelector(state => state.session.user);  
     const collections = useSelector((state) => state.collection.userCollections);
-    const collection = useSelector((state) => state.collection.userCollections[0]);
+    const collection = useSelector((state) => state.userCollections);
 
     let collectionUser;
 
     console.log('collections ->', currentCollectionId);
-    console.log('userrrrrr ->', user);
+    console.log('userrrrrr ->', userId);
 
     useEffect(() => {
-        dispatch(collectionActions.getCollection(user, currentCollectionId));
-    }, [dispatch, user, currentCollectionId]);
+        dispatch(collectionActions.getCollection(userId, currentCollectionId));
+    }, [dispatch, userId, currentCollectionId]);
 
     // // maps through collections to set the collection user
     // collections.map((collection) => {

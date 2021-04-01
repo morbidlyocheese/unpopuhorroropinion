@@ -73,7 +73,7 @@ function removeCollection(collection) {
 export const getCollection = (userId, collectionId, collectionUser) => async (dispatch) => {
     const res = await fetch(`/api/users/${userId}/collections/${collectionId}`);
     console.log('res ->', res.data)
-    dispatch(collection(res.data.userCollection, collectionUser));
+    dispatch(collection(res.data.userCollections, collectionUser));
     dispatch(getCollectionUser(res.data.userId));
     dispatch(movies(res.data.movieIds));
     return res;

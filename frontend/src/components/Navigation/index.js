@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
@@ -9,9 +9,10 @@ import CollectionDropdown from './CollectionDropdown';
 
 import './Navigation.css';
 
+
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
-
+    
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (

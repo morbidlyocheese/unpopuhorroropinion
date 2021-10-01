@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 import * as collectionActions from '../../store/collection';
 import './Navigation.css';
@@ -9,15 +9,17 @@ function CollectionDropdown() {
     const dispatch = useDispatch();
     const history = useHistory();
     const userId = useSelector((state) => state.session.user.id);
-    const collections = useSelector((state) => state.collection.collections);
+    // const collections = useSelector((state) => state.collection.collections);
     const [collectionId, setCollectionId] = useState(0);
+
+    const collections = useSelector((state) => state.collection.userCollections);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(collectionActions.getCollection(collectionId))
-        history.push(`/collections/${collectionId}`)
+        dispatch(collectionActions.getCollection(userId, collectionId));
+        history.push(`/users/${userId}/collections/${collectionId}`);
     }
-    
+
     const onChange = (e) => {
         setCollectionId(parseInt(e.target.value));
     }

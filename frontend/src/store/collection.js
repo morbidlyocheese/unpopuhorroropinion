@@ -70,12 +70,12 @@ function removeCollection(collection) {
 }
 
 // get single collection
-export const getCollection = (collectionId, collectionUser) => async (dispatch) => {
-    const res = await fetch(`/api/collections/${collectionId}`);
-    dispatch(collection(res.data.collections, collectionUser));
+export const getCollection = (userId, collectionId, collectionUser) => async (dispatch) => {
+    const res = await fetch(`/api/users/${userId}/collections/${collectionId}`);
     console.log('res ->', res.data)
-    dispatch(getCollectionUser(res.data.profile));
-    dispatch(movies(res.data.movie));
+    dispatch(collection(res.data.userCollections, collectionUser));
+    dispatch(getCollectionUser(res.data.userId));
+    dispatch(movies(res.data.movieIds));
     return res;
 }
 
@@ -83,18 +83,18 @@ export const getCollection = (collectionId, collectionUser) => async (dispatch) 
 export const getUserCollections = (id) => async (dispatch) => {
     const res = await fetch(`/api/users/${id}/profile`);
     dispatch(userCollections(res.data.userCollections));
-    console.log('res ->', res.data)
     dispatch(getCollectionUser(res.data.profile));
+    console.log('res ->', res.data)
     return res;
 }
 
 
 // get all collections
-export const getAllCollections = () => async (dispatch) => {
-    const res = await fetch(`/api/collections`);
-    dispatch(collections(res.data.collections));
-    return res;
-}
+// export const getAllCollections = () => async (dispatch) => {
+//     const res = await fetch(`/api/collections`);
+//     dispatch(collections(res.data.collections));
+//     return res;
+// }
 
 // add movie to collection
 export const addToCollection = (movieId, collectionId, userId) => async (dispatch) => {
@@ -160,11 +160,11 @@ export const deleteCollection = (collectionId, userId) => async (dispatch) => {
     return res;
 }
 
-const collectionReducer = (state = { collection: [], collections: [], userCollections: [], user: {} }, action) => {
+const collectionReducer = (state = { userCollection: {}, collections: [], userCollections: [], user: {}, movieIds: [] }, action) => {
     let newState;
     switch (action.type) {
         case GET_COLLECTION:
-            return {...state, collection: action.payload};
+            return {...state, userCollection: action.payload};
         case USER_COLLECTIONS:
             return {...state, userCollections: action.payload};
         case COLLECTION_USER:

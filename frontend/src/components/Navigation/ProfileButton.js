@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import About from '../AboutModal/About';
 
 import * as sessionActions from '../../store/session';
+import * as collectionActions from '../../store/collection';
+
 import './Navigation.css';
 
 function ProfileButton({ user }) {
@@ -15,6 +17,10 @@ function ProfileButton({ user }) {
         if (showMenu) return;
         setShowMenu(true);
     };
+
+    dispatch(collectionActions.getUserCollections(userId));
+    // console.log(userId)
+
 
     useEffect(() => {
         if (!showMenu) return;

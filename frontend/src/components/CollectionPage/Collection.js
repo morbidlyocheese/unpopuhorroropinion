@@ -4,27 +4,42 @@ import { useParams } from 'react-router-dom';
 
 import './Collection.css';
 import * as collectionActions from '../../store/collection';
+import { useEffect } from 'react';
 
 function Collection() {
     const dispatch = useDispatch();
     const history = useHistory();
     let currentCollectionId = useParams();
     currentCollectionId = currentCollectionId.id;
+    currentCollectionId = parseInt(currentCollectionId);
 
-    const userId = useSelector((state) => state.session.user.id);
-    const collection = useSelector((state) => state.collection.movies);
+    // const userId = useSelector((state) => state.session.user.id);
+    let userId = useParams();
+    userId = parseInt(userId.id);
+
+    const user = useSelector((state) => state.collection.userId);
+    // const collection = useSelector((state) => state);
+    // const collection = useSelector((state) => state.collection.movies);
     const sessionUser = useSelector(state => state.session.user);  
-    const collections = useSelector((state) => state.collection.collections);
+    const collections = useSelector((state) => state.collection.userCollections);
+    const collection = useSelector((state) => state.userCollections);
 
     let collectionUser;
 
-    // maps through collections to set the collection user
-    collections.map((collection) => {
-        if (collection.userId === userId) {
-            collectionUser = collection.userId;
-        }
-        return collectionUser;
-    })
+    console.log('collections ->', currentCollectionId);
+    console.log('userrrrrr ->', userId);
+
+    useEffect(() => {
+        dispatch(collectionActions.getCollection(userId, currentCollectionId));
+    }, [dispatch, userId, currentCollectionId]);
+
+    // // maps through collections to set the collection user
+    // collections.map((collection) => {
+    //     if (collection.userId === userId) {
+    //         collectionUser = collection.userId;
+    //     }
+    //     return collectionUser;
+    // })
 
     return (
         <div>
@@ -41,9 +56,9 @@ function Collection() {
                     <p className='movie-titles'>Collection Titles:</p>
                     {collection && collection.map((movie, i) => (
                         (movie.success === undefined) ? <><li className='collection-list-item'>{movie.title}<button className='delete-movie-button' type='submit' onClick={() => {
-                            if (collectionUser === userId || sessionUser.username === 'admin') {
+                            if (collectionUser === user || sessionUser.username === 'admin') {
                                 const movId = movie.id;
-                                dispatch(collectionActions.delFromCollection(movId, collection, currentCollectionId, userId));
+                                dispatch(collectionActions.delFromCollection(movId, collection, currentCollectionId, user));
                                 history.push(`/collections/${currentCollectionId}`)
                             } else {
                                 alert("You cannot delete things that aren't yours!");

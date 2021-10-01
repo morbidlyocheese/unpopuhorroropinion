@@ -59,6 +59,6 @@ router.get(
     const profile = await User.findByPk(userId);
 
     return res.json({ userCollections, profile: profile });
-}))
+}));
 
 module.exports = router;

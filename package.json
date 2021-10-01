@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/djangothesolarboy/unpopuhorroropinion#readme",
   "dependencies": {
-    "immer": "^8.0.1",
+    "immer": "^9.0.6",
     "is-svg": "^4.2.2",
     "react-dev-utils": "^11.0.4"
   }
